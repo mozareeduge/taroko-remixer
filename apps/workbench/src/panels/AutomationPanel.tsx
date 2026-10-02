@@ -6,7 +6,7 @@ import {
   addTrigger, removeTrigger, toggleTriggerEnabled,
   setTriggerCondition, setTriggerChance, setTriggerAction,
 } from "../store/commands.js";
-import { uid } from "@taroke/core";
+import { uid } from "@taroko/core";
 
 export function AutomationPanel() {
   const dispatch = useAppDispatch();

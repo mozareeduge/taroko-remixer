@@ -5,5 +5,5 @@ import { test, expect } from "@playwright/test";
 
 test("v08 workbench shell loads", async ({ page }) => {
   await page.goto("/next/");
-  await expect(page.locator("h1")).toContainText("TAROKE RIMIXER");
+  await expect(page.locator("h1")).toContainText("TAROKO REMIXER");
 });

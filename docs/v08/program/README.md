@@ -1,6 +1,6 @@
-# TAROKE RIMIXER v08 — Hybrid Editor Rebuild Program
+# TAROKO REMIXER v08 — Hybrid Editor Rebuild Program
 
-This package is the implementation authority for rebuilding the TAROKE RIMIXER editor around the tested v07.8 engine and artifact formats.
+This package is the implementation authority for rebuilding the TAROKO REMIXER editor around the tested v07.8 engine and artifact formats.
 
 Baseline:
 

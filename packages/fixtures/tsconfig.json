@@ -4,7 +4,7 @@
     "lib": ["ES2022"],
     "outDir": "./dist",
     "paths": {
-      "@taroke/schema": ["../schema/src/index.ts"]
+      "@taroko/schema": ["../schema/src/index.ts"]
     }
   },
   "include": ["src", "../schema/src"],

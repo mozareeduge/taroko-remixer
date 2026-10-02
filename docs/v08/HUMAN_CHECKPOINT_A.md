@@ -1,6 +1,6 @@
 # Human Checkpoint A — WP05 Vertical Slice Gate
 
-**Program**: TAROKE Remixer v08 WP05 Vertical Slice  
+**Program**: TAROKO Remixer v08 WP05 Vertical Slice  
 **Candidate commit**: `a781bf9` (HEAD on `claude/v08-wp05-vertical-slice-recovery` = PR #15)  
 **CI gate**: run 29530118934 (pull_request, all 8 jobs green) → **conclusion: success** ✓  
 **Prepared**: 2026-07-16 (candidate history: 9ffdf50 → a2e3de5 → 7e95556 → a781bf9)  
@@ -142,7 +142,7 @@ Three fresh independent reviewers ran against a2e3de5:
 
 - **Reviewer 1 (correctness)**: BLOCKED — P1: missing `onTouchCancel` on drag handle in `CompositionPanel.tsx`. P2: no unit tests for F-REF cascade commands; no unit tests for F-V07-DRAFT; redundant `timeLabel` shadowing.
 - **Reviewer 2 (a11y/UX/touch)**: BLOCKED — P1: missing `onTouchCancel`; P1: `e.preventDefault()` in React synthetic `onTouchMove` is passive on iOS/Chrome — page scrolls during drag. P2: redundant `timeLabel` shadowing.
-- **Reviewer 3 (data integrity/types)**: APPROVED — P2: `V07Draft.project` field typed as `TarokeProject` instead of `unknown` (safe at runtime; migration accepts `unknown`).
+- **Reviewer 3 (data integrity/types)**: APPROVED — P2: `V07Draft.project` field typed as `TarokoProject` instead of `unknown` (safe at runtime; migration accepts `unknown`).
 
 Fixes applied in commit `7e95556`:
 - `onTouchCancel={onTouchEnd}` added to drag handle button

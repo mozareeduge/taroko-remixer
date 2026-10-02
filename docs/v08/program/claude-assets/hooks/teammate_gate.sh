@@ -9,8 +9,8 @@ for f in docs/v08/STATUS.md docs/v08/DECISIONS.md docs/v08/TEST_MIGRATION_LEDGER
 done
 [ "$missing" -eq 0 ] || exit 2
 if [ -f package.json ]; then
-  npm run typecheck --if-present >/tmp/taroke-typecheck.log 2>&1 || {
-    cat /tmp/taroke-typecheck.log >&2
+  npm run typecheck --if-present >/tmp/taroko-typecheck.log 2>&1 || {
+    cat /tmp/taroko-typecheck.log >&2
     exit 2
   }
 fi

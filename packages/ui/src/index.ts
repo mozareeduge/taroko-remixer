@@ -1,4 +1,4 @@
-// @taroke/ui — unstyled/project-styled primitives
+// @taroko/ui — unstyled/project-styled primitives
 
 export { Button } from "./Button.js";
 export type { ButtonProps, ButtonVariant } from "./Button.js";

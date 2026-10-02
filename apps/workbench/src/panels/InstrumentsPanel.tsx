@@ -7,7 +7,7 @@ import {
   addRoute, removeRoute, updateRouteTemplate, setRouteWeight,
   addDeviceInput, removeDeviceInput, updateDeviceInput,
 } from "../store/commands.js";
-import { uid } from "@taroke/core";
+import { uid } from "@taroko/core";
 
 // Forms available per bank role — unknown roles degrade to ["literal"].
 // { key } matches the token form identifier; { label } is the user-visible name.

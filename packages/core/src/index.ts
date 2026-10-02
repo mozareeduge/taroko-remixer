@@ -1,7 +1,7 @@
-// @taroke/core — pure generation functions, forms, weights, triggers
+// @taroko/core — pure generation functions, forms, weights, triggers
 // No DOM, React, localStorage, or downloads.
 
-export { SCHEMA_VERSION } from "@taroke/schema";
+export { SCHEMA_VERSION } from "@taroko/schema";
 
 export * from "./utils.js";
 export * from "./forms.js";

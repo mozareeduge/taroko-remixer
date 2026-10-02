@@ -21,8 +21,8 @@ import {
   setProjectStatement,
   setProjectCredits,
 } from "../store/commands.js";
-import { defaultProject } from "@taroke/core";
-import { downloadName } from "@taroke/core";
+import { defaultProject } from "@taroko/core";
+import { downloadName } from "@taroko/core";
 import type { EditorPanel } from "../store/types.js";
 
 function makeStore() {
@@ -137,7 +137,7 @@ describe("blank title fallback and filename safety", () => {
   it("blank title produces safe fallback filename", () => {
     const p = defaultProject();
     p.project.title = "";
-    expect(downloadName(p, ".taroke.json")).toBe("taroke_rimix.taroke.json");
+    expect(downloadName(p, ".taroke.json")).toBe("taroko_rimix.taroke.json");
   });
 
   it("special-char title is sanitized in filename", () => {
@@ -149,7 +149,7 @@ describe("blank title fallback and filename safety", () => {
   it("whitespace-only title produces safe fallback filename", () => {
     const p = defaultProject();
     p.project.title = "   ";
-    expect(downloadName(p, ".taroke.json")).toBe("taroke_rimix.taroke.json");
+    expect(downloadName(p, ".taroke.json")).toBe("taroko_rimix.taroke.json");
   });
 });
 

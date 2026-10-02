@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { RuntimeState, RuntimeStatus } from "./types.js";
-import type { TarokeEvent } from "@taroke/schema";
+import type { TarokoEvent } from "@taroko/schema";
 
 const RECENT_EVENT_MAX = 100;
 
@@ -28,7 +28,7 @@ const runtimeSlice = createSlice({
       state.runState = { tick: 0, queue: [], currentScene: null, currentStanza: null };
       state.recentEventIds = [];
     },
-    recordEvent(state, action: PayloadAction<TarokeEvent>) {
+    recordEvent(state, action: PayloadAction<TarokoEvent>) {
       const ev = action.payload;
       state.runState.tick = ev.tick + 1;
       state.runState.currentScene = ev.type !== "error" ? (ev.sceneId ?? null) : null;

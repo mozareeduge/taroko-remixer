@@ -1,5 +1,5 @@
 {
-  "name": "@taroke/fixtures",
+  "name": "@taroko/fixtures",
   "version": "0.8.0",
   "private": true,
   "type": "module",
@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@taroke/schema": "*",
+    "@taroko/schema": "*",
     "typescript": "^5.6.2"
   }
 }

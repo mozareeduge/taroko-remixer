@@ -1,12 +1,12 @@
-import type { TarokeProject, RunState, ValidationIssue } from "@taroke/schema";
-import type { ImportReceipt } from "@taroke/core";
+import type { TarokoProject, RunState, ValidationIssue } from "@taroko/schema";
+import type { ImportReceipt } from "@taroko/core";
 import type { TakesState } from "./takesSlice.js";
 import type { SurfaceState } from "./surfaceSlice.js";
 
 // ── Project state ──────────────────────────────────────────────────────────────
 
 export interface ProjectState {
-  present: TarokeProject;
+  present: TarokoProject;
   isDirty: boolean;
   lastSavedAt: string | null;
 }

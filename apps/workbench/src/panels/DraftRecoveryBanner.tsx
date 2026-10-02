@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useAppDispatch } from "../store/hooks.js";
 import { setProject } from "../store/projectSlice.js";
 import { loadFromLocalStorage, clearAutosave, loadV07Draft } from "../store/autosave.js";
-import { migrateProject } from "@taroke/core";
+import { migrateProject } from "@taroko/core";
 
 type BannerState = "none" | "draft" | "corrupt" | "v07draft" | "dismissed";
 

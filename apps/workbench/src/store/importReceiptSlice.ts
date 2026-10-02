@@ -1,7 +1,7 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { ValidationIssue } from "@taroke/schema";
+import type { ValidationIssue } from "@taroko/schema";
 import type { ImportReceiptState } from "./types.js";
-import type { ImportReceipt } from "@taroke/core";
+import type { ImportReceipt } from "@taroko/core";
 
 const initialState: ImportReceiptState = {
   visible: false,

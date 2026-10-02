@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify TAROKE's lean Claude/Playwright/CI operating boundary."""
+"""Verify TAROKO's lean Claude/Playwright/CI operating boundary."""
 from __future__ import annotations
 import json
 import re

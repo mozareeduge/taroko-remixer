@@ -1,4 +1,4 @@
-# QA Hardening Plan — TAROKE REMIXER v07.1
+# QA Hardening Plan — TAROKO REMIXER v07.1
 
 Generated: 2026-07-08
 
@@ -6,7 +6,7 @@ Generated: 2026-07-08
 
 - [ ] root `index.html` loads without framework/bundler
 - [ ] `src/core.js` and `src/app.js` are referenced correctly
-- [ ] no "Loading TAROKE" boot fallback remains in DOM after boot
+- [ ] no "Loading TAROKO" boot fallback remains in DOM after boot
 - [ ] no console errors on first load (syntax errors, missing modules, etc.)
 - [ ] `.nojekyll` exists at repo root
 - [ ] no zip/temp extraction folder tracked in git

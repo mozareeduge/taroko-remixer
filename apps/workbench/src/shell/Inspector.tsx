@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from "../store/hooks.js";
 import { mutateProject } from "../store/projectSlice.js";
 import type { SelectionTarget } from "../store/types.js";
-import type { TarokeProject } from "@taroke/schema";
+import type { TarokoProject } from "@taroko/schema";
 import type { AppDispatch } from "../store/store.js";
 import {
   updateTokenLiteral, setTokenWeight, setTokenLockedLiteral,
@@ -21,7 +21,7 @@ function InspectorBody({
   dispatch,
 }: {
   primary: NonNullTarget;
-  project: TarokeProject;
+  project: TarokoProject;
   dispatch: AppDispatch;
 }) {
   if (primary.type === "bank") {

@@ -1,5 +1,5 @@
 {
-  "name": "@taroke/workbench",
+  "name": "@taroko/workbench",
   "version": "0.8.0",
   "private": true,
   "type": "module",
@@ -16,10 +16,10 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@taroke/core": "*",
-    "@taroke/schema": "*",
-    "@taroke/artifact-runtime": "*",
-    "@taroke/ui": "*",
+    "@taroko/core": "*",
+    "@taroko/schema": "*",
+    "@taroko/artifact-runtime": "*",
+    "@taroko/ui": "*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "@reduxjs/toolkit": "^2.3.0",
@@ -38,7 +38,7 @@
     "@storybook/react": "^8.3.5",
     "@storybook/react-vite": "^8.3.5",
     "@storybook/test": "^8.3.5",
-    "@taroke/fixtures": "*",
+    "@taroko/fixtures": "*",
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^14.5.2",

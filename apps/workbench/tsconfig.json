@@ -6,11 +6,11 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@taroke/core": ["../../packages/core/src/index.ts"],
-      "@taroke/schema": ["../../packages/schema/src/index.ts"],
-      "@taroke/artifact-runtime": ["../../packages/artifact-runtime/src/index.ts"],
-      "@taroke/ui": ["../../packages/ui/src/index.ts"],
-      "@taroke/fixtures": ["../../packages/fixtures/src/index.ts"]
+      "@taroko/core": ["../../packages/core/src/index.ts"],
+      "@taroko/schema": ["../../packages/schema/src/index.ts"],
+      "@taroko/artifact-runtime": ["../../packages/artifact-runtime/src/index.ts"],
+      "@taroko/ui": ["../../packages/ui/src/index.ts"],
+      "@taroko/fixtures": ["../../packages/fixtures/src/index.ts"]
     }
   },
   "noEmit": true,

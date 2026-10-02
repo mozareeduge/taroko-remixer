@@ -15,4 +15,4 @@ Fixed from user screenshots:
 Verification:
 
 - `./tests/run_all_tests.sh`: 45 passed, 0 failed.
-- Additional Node check on `mumblings.taroke` import/export: no doubled commas, no unresolved `{...}` variables, no exported `<span class="tick">`.
+- Additional Node check on `mumblings.taroko` import/export: no doubled commas, no unresolved `{...}` variables, no exported `<span class="tick">`.

@@ -1,56 +1,56 @@
 import { produceWithPatches, type Patch } from "immer";
-import { uid } from "@taroke/core";
-import type { TarokeProject, Token, LineDevice, Route, StanzaPattern, StanzaSlot, FlowScene, Trigger, DeviceInput } from "@taroke/schema";
+import { uid } from "@taroko/core";
+import type { TarokoProject, Token, LineDevice, Route, StanzaPattern, StanzaSlot, FlowScene, Trigger, DeviceInput } from "@taroko/schema";
 
 // ── Command result ─────────────────────────────────────────────────────────────
 
 export interface CommandResult {
-  present: TarokeProject;
+  present: TarokoProject;
   patches: Patch[];
   inversePatches: Patch[];
   label: string;
 }
 
 function cmd(
-  project: TarokeProject,
+  project: TarokoProject,
   label: string,
-  mutate: (draft: TarokeProject) => void,
+  mutate: (draft: TarokoProject) => void,
 ): CommandResult {
   const [present, patches, inversePatches] = produceWithPatches(project, mutate);
-  return { present: present as TarokeProject, patches, inversePatches, label };
+  return { present: present as TarokoProject, patches, inversePatches, label };
 }
 
 // ── Project info ───────────────────────────────────────────────────────────────
 
-export function setProjectTitle(project: TarokeProject, title: string): CommandResult {
+export function setProjectTitle(project: TarokoProject, title: string): CommandResult {
   return cmd(project, "Set title", (d) => { d.project.title = title; });
 }
 
-export function setProjectAuthor(project: TarokeProject, author: string): CommandResult {
+export function setProjectAuthor(project: TarokoProject, author: string): CommandResult {
   return cmd(project, "Set author", (d) => { d.project.author = author; });
 }
 
-export function setProjectStatement(project: TarokeProject, statement: string): CommandResult {
+export function setProjectStatement(project: TarokoProject, statement: string): CommandResult {
   return cmd(project, "Set statement", (d) => { d.project.statement = statement; });
 }
 
-export function setProjectCredits(project: TarokeProject, credits: string): CommandResult {
+export function setProjectCredits(project: TarokoProject, credits: string): CommandResult {
   return cmd(project, "Set credits", (d) => { d.project.credits = credits; });
 }
 
-export function setProjectLanguage(project: TarokeProject, language: string): CommandResult {
+export function setProjectLanguage(project: TarokoProject, language: string): CommandResult {
   return cmd(project, "Set language", (d) => { d.project.language = language; });
 }
 
-export function setProjectSourceTitle(project: TarokeProject, sourceTitle: string): CommandResult {
+export function setProjectSourceTitle(project: TarokoProject, sourceTitle: string): CommandResult {
   return cmd(project, "Set source title", (d) => { d.project.sourceTitle = sourceTitle; });
 }
 
-export function setProjectSourceUrl(project: TarokeProject, sourceUrl: string): CommandResult {
+export function setProjectSourceUrl(project: TarokoProject, sourceUrl: string): CommandResult {
   return cmd(project, "Set source URL", (d) => { d.project.sourceUrl = sourceUrl; });
 }
 
-export function setProjectSource(project: TarokeProject, sourceTitle: string, sourceUrl: string): CommandResult {
+export function setProjectSource(project: TarokoProject, sourceTitle: string, sourceUrl: string): CommandResult {
   return cmd(project, "Set source", (d) => {
     d.project.sourceTitle = sourceTitle;
     d.project.sourceUrl = sourceUrl;
@@ -59,7 +59,7 @@ export function setProjectSource(project: TarokeProject, sourceTitle: string, so
 
 // ── Token commands ─────────────────────────────────────────────────────────────
 
-export function addToken(project: TarokeProject, bankName: string, literal: string): CommandResult {
+export function addToken(project: TarokoProject, bankName: string, literal: string): CommandResult {
   return cmd(project, `Add sample to ${bankName}`, (d) => {
     const tray = d.materials.trays[bankName];
     if (!tray) return;
@@ -68,28 +68,28 @@ export function addToken(project: TarokeProject, bankName: string, literal: stri
   });
 }
 
-export function updateTokenLiteral(project: TarokeProject, bankName: string, tokenId: string, literal: string): CommandResult {
+export function updateTokenLiteral(project: TarokoProject, bankName: string, tokenId: string, literal: string): CommandResult {
   return cmd(project, "Edit sample", (d) => {
     const tok = d.materials.trays[bankName]?.find((t) => t.id === tokenId);
     if (tok) tok.literal = literal;
   });
 }
 
-export function setTokenWeight(project: TarokeProject, bankName: string, tokenId: string, weight: number): CommandResult {
+export function setTokenWeight(project: TarokoProject, bankName: string, tokenId: string, weight: number): CommandResult {
   return cmd(project, "Set sample weight", (d) => {
     const tok = d.materials.trays[bankName]?.find((t) => t.id === tokenId);
     if (tok) tok.weight = weight;
   });
 }
 
-export function setTokenLockedLiteral(project: TarokeProject, bankName: string, tokenId: string, locked: boolean): CommandResult {
+export function setTokenLockedLiteral(project: TarokoProject, bankName: string, tokenId: string, locked: boolean): CommandResult {
   return cmd(project, "Toggle locked literal", (d) => {
     const tok = d.materials.trays[bankName]?.find((t) => t.id === tokenId);
     if (tok) tok.lockedLiteral = locked;
   });
 }
 
-export function removeToken(project: TarokeProject, bankName: string, tokenId: string): CommandResult {
+export function removeToken(project: TarokoProject, bankName: string, tokenId: string): CommandResult {
   return cmd(project, `Remove sample from ${bankName}`, (d) => {
     const tray = d.materials.trays[bankName];
     if (!tray) return;
@@ -98,7 +98,7 @@ export function removeToken(project: TarokeProject, bankName: string, tokenId: s
   });
 }
 
-export function reorderTokens(project: TarokeProject, bankName: string, orderedIds: string[]): CommandResult {
+export function reorderTokens(project: TarokoProject, bankName: string, orderedIds: string[]): CommandResult {
   return cmd(project, "Reorder samples", (d) => {
     const tray = d.materials.trays[bankName];
     if (!tray) return;
@@ -108,7 +108,7 @@ export function reorderTokens(project: TarokeProject, bankName: string, orderedI
   });
 }
 
-export function setTokenOverride(project: TarokeProject, tokenId: string, form: string, value: string): CommandResult {
+export function setTokenOverride(project: TarokoProject, tokenId: string, form: string, value: string): CommandResult {
   return cmd(project, "Set form override", (d) => {
     if (!d.forms.overrides[tokenId]) d.forms.overrides[tokenId] = {};
     d.forms.overrides[tokenId]![form] = value;
@@ -117,14 +117,14 @@ export function setTokenOverride(project: TarokeProject, tokenId: string, form: 
 
 // ── Bank meta commands ─────────────────────────────────────────────────────────
 
-export function setBankLabel(project: TarokeProject, bankName: string, label: string): CommandResult {
+export function setBankLabel(project: TarokoProject, bankName: string, label: string): CommandResult {
   return cmd(project, "Rename bank", (d) => {
     const meta = d.materials.bankMeta[bankName];
     if (meta) meta.label = label;
   });
 }
 
-export function addBank(project: TarokeProject, key: string, label: string, role = "literal"): CommandResult {
+export function addBank(project: TarokoProject, key: string, label: string, role = "literal"): CommandResult {
   return cmd(project, "Add bank", (d) => {
     if (!d.materials.trays[key]) {
       d.materials.trays[key] = [];
@@ -133,7 +133,7 @@ export function addBank(project: TarokeProject, key: string, label: string, role
   });
 }
 
-export function removeBank(project: TarokeProject, bankName: string): CommandResult {
+export function removeBank(project: TarokoProject, bankName: string): CommandResult {
   return cmd(project, "Remove bank", (d) => {
     delete d.materials.trays[bankName];
     delete d.materials.bankMeta[bankName];
@@ -142,53 +142,53 @@ export function removeBank(project: TarokeProject, bankName: string): CommandRes
 
 // ── Line device commands ───────────────────────────────────────────────────────
 
-export function addLineDevice(project: TarokeProject, device: LineDevice): CommandResult {
+export function addLineDevice(project: TarokoProject, device: LineDevice): CommandResult {
   return cmd(project, "Add line device", (d) => { d.lineDevices.push(device); });
 }
 
-export function updateDeviceName(project: TarokeProject, deviceId: string, name: string): CommandResult {
+export function updateDeviceName(project: TarokoProject, deviceId: string, name: string): CommandResult {
   return cmd(project, "Rename device", (d) => {
     const dev = d.lineDevices.find((x) => x.id === deviceId);
     if (dev) dev.name = name;
   });
 }
 
-export function updateDeviceDescription(project: TarokeProject, deviceId: string, description: string): CommandResult {
+export function updateDeviceDescription(project: TarokoProject, deviceId: string, description: string): CommandResult {
   return cmd(project, "Edit device description", (d) => {
     const dev = d.lineDevices.find((x) => x.id === deviceId);
     if (dev) dev.description = description;
   });
 }
 
-export function toggleDeviceEnabled(project: TarokeProject, deviceId: string): CommandResult {
+export function toggleDeviceEnabled(project: TarokoProject, deviceId: string): CommandResult {
   return cmd(project, "Toggle device", (d) => {
     const dev = d.lineDevices.find((x) => x.id === deviceId);
     if (dev) dev.enabled = !dev.enabled;
   });
 }
 
-export function removeLineDevice(project: TarokeProject, deviceId: string): CommandResult {
+export function removeLineDevice(project: TarokoProject, deviceId: string): CommandResult {
   return cmd(project, "Remove line device", (d) => {
     const idx = d.lineDevices.findIndex((x) => x.id === deviceId);
     if (idx >= 0) d.lineDevices.splice(idx, 1);
   });
 }
 
-export function reorderLineDevices(project: TarokeProject, orderedIds: string[]): CommandResult {
+export function reorderLineDevices(project: TarokoProject, orderedIds: string[]): CommandResult {
   return cmd(project, "Reorder devices", (d) => {
     const map = new Map(d.lineDevices.map((x) => [x.id, x]));
     d.lineDevices = orderedIds.map((id) => map.get(id)).filter(Boolean) as LineDevice[];
   });
 }
 
-export function addDeviceInput(project: TarokeProject, deviceId: string, input: Omit<DeviceInput, "id">): CommandResult {
+export function addDeviceInput(project: TarokoProject, deviceId: string, input: Omit<DeviceInput, "id">): CommandResult {
   return cmd(project, "Add device input", (d) => {
     const dev = d.lineDevices.find((x) => x.id === deviceId);
     if (dev) dev.inputs.push({ id: uid("inp"), ...input });
   });
 }
 
-export function removeDeviceInput(project: TarokeProject, deviceId: string, inputId: string): CommandResult {
+export function removeDeviceInput(project: TarokoProject, deviceId: string, inputId: string): CommandResult {
   return cmd(project, "Remove device input", (d) => {
     const dev = d.lineDevices.find((x) => x.id === deviceId);
     if (!dev) return;
@@ -207,7 +207,7 @@ export function removeDeviceInput(project: TarokeProject, deviceId: string, inpu
 }
 
 export function updateDeviceInput(
-  project: TarokeProject,
+  project: TarokoProject,
   deviceId: string,
   inputId: string,
   patch: Partial<Omit<DeviceInput, "id">>,
@@ -231,14 +231,14 @@ export function updateDeviceInput(
   });
 }
 
-export function addRoute(project: TarokeProject, deviceId: string, route: Route): CommandResult {
+export function addRoute(project: TarokoProject, deviceId: string, route: Route): CommandResult {
   return cmd(project, "Add route", (d) => {
     const dev = d.lineDevices.find((x) => x.id === deviceId);
     if (dev) dev.routes.push(route);
   });
 }
 
-export function updateRouteTemplate(project: TarokeProject, deviceId: string, routeId: string, template: string): CommandResult {
+export function updateRouteTemplate(project: TarokoProject, deviceId: string, routeId: string, template: string): CommandResult {
   return cmd(project, "Edit route template", (d) => {
     const dev = d.lineDevices.find((x) => x.id === deviceId);
     const route = dev?.routes.find((r) => r.id === routeId);
@@ -246,7 +246,7 @@ export function updateRouteTemplate(project: TarokeProject, deviceId: string, ro
   });
 }
 
-export function setRouteWeight(project: TarokeProject, deviceId: string, routeId: string, weight: number): CommandResult {
+export function setRouteWeight(project: TarokoProject, deviceId: string, routeId: string, weight: number): CommandResult {
   return cmd(project, "Set route weight", (d) => {
     const dev = d.lineDevices.find((x) => x.id === deviceId);
     const route = dev?.routes.find((r) => r.id === routeId);
@@ -254,7 +254,7 @@ export function setRouteWeight(project: TarokeProject, deviceId: string, routeId
   });
 }
 
-export function removeRoute(project: TarokeProject, deviceId: string, routeId: string): CommandResult {
+export function removeRoute(project: TarokoProject, deviceId: string, routeId: string): CommandResult {
   return cmd(project, "Remove route", (d) => {
     const dev = d.lineDevices.find((x) => x.id === deviceId);
     if (!dev) return;
@@ -265,39 +265,39 @@ export function removeRoute(project: TarokeProject, deviceId: string, routeId: s
 
 // ── Stanza commands ────────────────────────────────────────────────────────────
 
-export function addStanzaPattern(project: TarokeProject, stanza: StanzaPattern): CommandResult {
+export function addStanzaPattern(project: TarokoProject, stanza: StanzaPattern): CommandResult {
   return cmd(project, "Add stanza pattern", (d) => { d.stanzaPatterns.push(stanza); });
 }
 
-export function updateStanzaName(project: TarokeProject, stanzaId: string, name: string): CommandResult {
+export function updateStanzaName(project: TarokoProject, stanzaId: string, name: string): CommandResult {
   return cmd(project, "Rename stanza", (d) => {
     const s = d.stanzaPatterns.find((x) => x.id === stanzaId);
     if (s) s.name = name;
   });
 }
 
-export function toggleStanzaEnabled(project: TarokeProject, stanzaId: string): CommandResult {
+export function toggleStanzaEnabled(project: TarokoProject, stanzaId: string): CommandResult {
   return cmd(project, "Toggle stanza", (d) => {
     const s = d.stanzaPatterns.find((x) => x.id === stanzaId);
     if (s) s.enabled = !s.enabled;
   });
 }
 
-export function removeStanzaPattern(project: TarokeProject, stanzaId: string): CommandResult {
+export function removeStanzaPattern(project: TarokoProject, stanzaId: string): CommandResult {
   return cmd(project, "Remove stanza pattern", (d) => {
     const idx = d.stanzaPatterns.findIndex((x) => x.id === stanzaId);
     if (idx >= 0) d.stanzaPatterns.splice(idx, 1);
   });
 }
 
-export function addStanzaSlot(project: TarokeProject, stanzaId: string, slot: StanzaSlot): CommandResult {
+export function addStanzaSlot(project: TarokoProject, stanzaId: string, slot: StanzaSlot): CommandResult {
   return cmd(project, "Add stanza slot", (d) => {
     const s = d.stanzaPatterns.find((x) => x.id === stanzaId);
     if (s) s.slots.push(slot);
   });
 }
 
-export function removeStanzaSlot(project: TarokeProject, stanzaId: string, slotId: string): CommandResult {
+export function removeStanzaSlot(project: TarokoProject, stanzaId: string, slotId: string): CommandResult {
   return cmd(project, "Remove stanza slot", (d) => {
     const s = d.stanzaPatterns.find((x) => x.id === stanzaId);
     if (!s) return;
@@ -306,7 +306,7 @@ export function removeStanzaSlot(project: TarokeProject, stanzaId: string, slotI
   });
 }
 
-export function reorderStanzaSlots(project: TarokeProject, stanzaId: string, orderedIds: string[]): CommandResult {
+export function reorderStanzaSlots(project: TarokoProject, stanzaId: string, orderedIds: string[]): CommandResult {
   return cmd(project, "Reorder stanza slots", (d) => {
     const s = d.stanzaPatterns.find((x) => x.id === stanzaId);
     if (!s) return;
@@ -315,7 +315,7 @@ export function reorderStanzaSlots(project: TarokeProject, stanzaId: string, ord
   });
 }
 
-export function setSlotChance(project: TarokeProject, stanzaId: string, slotId: string, chance: number): CommandResult {
+export function setSlotChance(project: TarokoProject, stanzaId: string, slotId: string, chance: number): CommandResult {
   return cmd(project, "Set slot chance", (d) => {
     const s = d.stanzaPatterns.find((x) => x.id === stanzaId);
     const slot = s?.slots.find((sl) => sl.id === slotId);
@@ -323,7 +323,7 @@ export function setSlotChance(project: TarokeProject, stanzaId: string, slotId: 
   });
 }
 
-export function setSlotRepeat(project: TarokeProject, stanzaId: string, slotId: string, repeat: "once" | "loop"): CommandResult {
+export function setSlotRepeat(project: TarokoProject, stanzaId: string, slotId: string, repeat: "once" | "loop"): CommandResult {
   return cmd(project, "Set slot repeat", (d) => {
     const s = d.stanzaPatterns.find((x) => x.id === stanzaId);
     const slot = s?.slots.find((sl) => sl.id === slotId);
@@ -333,32 +333,32 @@ export function setSlotRepeat(project: TarokeProject, stanzaId: string, slotId: 
 
 // ── Flow scene commands ────────────────────────────────────────────────────────
 
-export function addFlowScene(project: TarokeProject, scene: FlowScene): CommandResult {
+export function addFlowScene(project: TarokoProject, scene: FlowScene): CommandResult {
   return cmd(project, "Add flow scene", (d) => { d.flowScenes.push(scene); });
 }
 
-export function updateSceneName(project: TarokeProject, sceneId: string, name: string): CommandResult {
+export function updateSceneName(project: TarokoProject, sceneId: string, name: string): CommandResult {
   return cmd(project, "Rename scene", (d) => {
     const s = d.flowScenes.find((x) => x.id === sceneId);
     if (s) s.name = name;
   });
 }
 
-export function toggleSceneEnabled(project: TarokeProject, sceneId: string): CommandResult {
+export function toggleSceneEnabled(project: TarokoProject, sceneId: string): CommandResult {
   return cmd(project, "Toggle scene", (d) => {
     const s = d.flowScenes.find((x) => x.id === sceneId);
     if (s) s.enabled = !s.enabled;
   });
 }
 
-export function setSceneChance(project: TarokeProject, sceneId: string, chance: number): CommandResult {
+export function setSceneChance(project: TarokoProject, sceneId: string, chance: number): CommandResult {
   return cmd(project, "Set scene chance", (d) => {
     const s = d.flowScenes.find((x) => x.id === sceneId);
     if (s) s.chance = chance;
   });
 }
 
-export function removeFlowScene(project: TarokeProject, sceneId: string): CommandResult {
+export function removeFlowScene(project: TarokoProject, sceneId: string): CommandResult {
   return cmd(project, "Remove flow scene", (d) => {
     const idx = d.flowScenes.findIndex((x) => x.id === sceneId);
     if (idx >= 0) d.flowScenes.splice(idx, 1);
@@ -367,46 +367,46 @@ export function removeFlowScene(project: TarokeProject, sceneId: string): Comman
 
 // ── Trigger commands ───────────────────────────────────────────────────────────
 
-export function addTrigger(project: TarokeProject, trigger: Trigger): CommandResult {
+export function addTrigger(project: TarokoProject, trigger: Trigger): CommandResult {
   return cmd(project, "Add trigger", (d) => { d.triggers.push(trigger); });
 }
 
-export function updateTriggerName(project: TarokeProject, triggerId: string, name: string): CommandResult {
+export function updateTriggerName(project: TarokoProject, triggerId: string, name: string): CommandResult {
   return cmd(project, "Rename trigger", (d) => {
     const t = d.triggers.find((x) => x.id === triggerId);
     if (t) t.name = name;
   });
 }
 
-export function toggleTriggerEnabled(project: TarokeProject, triggerId: string): CommandResult {
+export function toggleTriggerEnabled(project: TarokoProject, triggerId: string): CommandResult {
   return cmd(project, "Toggle trigger", (d) => {
     const t = d.triggers.find((x) => x.id === triggerId);
     if (t) t.enabled = !t.enabled;
   });
 }
 
-export function setTriggerCondition(project: TarokeProject, triggerId: string, tray: string, term: string): CommandResult {
+export function setTriggerCondition(project: TarokoProject, triggerId: string, tray: string, term: string): CommandResult {
   return cmd(project, "Set trigger condition", (d) => {
     const t = d.triggers.find((x) => x.id === triggerId);
     if (t) { t.condition.tray = tray; t.condition.term = term; }
   });
 }
 
-export function setTriggerChance(project: TarokeProject, triggerId: string, chance: number): CommandResult {
+export function setTriggerChance(project: TarokoProject, triggerId: string, chance: number): CommandResult {
   return cmd(project, "Set trigger chance", (d) => {
     const t = d.triggers.find((x) => x.id === triggerId);
     if (t) t.chance = chance;
   });
 }
 
-export function setTriggerAction(project: TarokeProject, triggerId: string, type: "append" | "prepend" | "replace", text: string): CommandResult {
+export function setTriggerAction(project: TarokoProject, triggerId: string, type: "append" | "prepend" | "replace", text: string): CommandResult {
   return cmd(project, "Set trigger action", (d) => {
     const t = d.triggers.find((x) => x.id === triggerId);
     if (t) { t.action.type = type; t.action.text = text; }
   });
 }
 
-export function removeTrigger(project: TarokeProject, triggerId: string): CommandResult {
+export function removeTrigger(project: TarokoProject, triggerId: string): CommandResult {
   return cmd(project, "Remove trigger", (d) => {
     const idx = d.triggers.findIndex((x) => x.id === triggerId);
     if (idx >= 0) d.triggers.splice(idx, 1);
@@ -415,32 +415,32 @@ export function removeTrigger(project: TarokeProject, triggerId: string): Comman
 
 // ── Surface commands ───────────────────────────────────────────────────────────
 
-export function setSurfaceSpeed(project: TarokeProject, speedMs: number): CommandResult {
+export function setSurfaceSpeed(project: TarokoProject, speedMs: number): CommandResult {
   return cmd(project, "Set surface speed", (d) => { d.surface.speedMs = speedMs; });
 }
 
-export function setSurfaceRetention(project: TarokeProject, retention: number): CommandResult {
+export function setSurfaceRetention(project: TarokoProject, retention: number): CommandResult {
   return cmd(project, "Set surface retention", (d) => { d.surface.retention = retention; });
 }
 
-export function setSurfaceFontSize(project: TarokeProject, fontSize: number): CommandResult {
+export function setSurfaceFontSize(project: TarokoProject, fontSize: number): CommandResult {
   return cmd(project, "Set font size", (d) => { d.surface.fontSize = fontSize; });
 }
 
-export function setSurfaceTheme(project: TarokeProject, theme: string): CommandResult {
+export function setSurfaceTheme(project: TarokoProject, theme: string): CommandResult {
   return cmd(project, "Set surface theme", (d) => { d.surface.theme = theme; });
 }
 
-export function setSurfaceTraceMode(project: TarokeProject, traceMode: string): CommandResult {
+export function setSurfaceTraceMode(project: TarokoProject, traceMode: string): CommandResult {
   return cmd(project, "Set trace mode", (d) => { d.surface.traceMode = traceMode; });
 }
 
 // ── Forms commands ─────────────────────────────────────────────────────────────
 
-export function setCasePolicy(project: TarokeProject, casePolicy: string): CommandResult {
+export function setCasePolicy(project: TarokoProject, casePolicy: string): CommandResult {
   return cmd(project, "Set case policy", (d) => { d.forms.casePolicy = casePolicy; });
 }
 
-export function setCompoundPolicy(project: TarokeProject, compoundPolicy: string): CommandResult {
+export function setCompoundPolicy(project: TarokoProject, compoundPolicy: string): CommandResult {
   return cmd(project, "Set compound policy", (d) => { d.forms.compoundPolicy = compoundPolicy; });
 }

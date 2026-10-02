@@ -917,7 +917,8 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const scenarioId=window.__TAROKE_SCENARIO__||new URLSearchParams(location.search).get('scenario');
 const TAROKE_VERSION='1.0.4';
-const RECOVERY_KEY='taroke.rimixer.v1.draft';
+const RECOVERY_KEY='taroko.remixer.v1.draft';
+const LEGACY_RECOVERY_KEYS=['taroke.rimixer.v1.draft','taroke.remixer.v07.draft'];
 const PREVIOUS_RECOVERY_KEYS=['taroke.rimixer.v1.0.1.draft','taroke.design.v4.5'];
 const LEGACY_PLURALS={man:'men',woman:'women',child:'children',person:'people',mouse:'mice',tooth:'teeth',foot:'feet',goose:'geese',ox:'oxen',sheep:'sheep',deer:'deer',fish:'fish',aircraft:'aircraft',series:'series',species:'species',cactus:'cacti',focus:'foci',fungus:'fungi',nucleus:'nuclei',syllabus:'syllabi',analysis:'analyses',crisis:'crises',thesis:'theses',diagnosis:'diagnoses',phenomenon:'phenomena',criterion:'criteria'};
 const LEGACY_VERB3={be:'is',have:'has',do:'does',go:'goes'};
@@ -1025,7 +1026,7 @@ function scenarioInitialState(id){
 }
 let project=applyScenarioProject(clone(baseProject),scenarioId);
 let recoveredFromBrowser=false,recoveryRejected=false,recoveredFromPreviousKey=false,recoveryUnavailable=false;
-if(!scenarioId){let local=null;try{local=localStorage.getItem(RECOVERY_KEY);if(!local){for(const key of PREVIOUS_RECOVERY_KEYS){local=localStorage.getItem(key);if(local){recoveredFromPreviousKey=true;break}}}}catch(e){recoveryUnavailable=true}if(local){try{const normalized=normalizeIncomingProject(JSON.parse(local),{fromRecovery:true});project=normalized.project;recoveredFromBrowser=true;if(recoveredFromPreviousKey)try{localStorage.setItem(RECOVERY_KEY,JSON.stringify(project))}catch(e){}}catch(e){project=clone(baseProject);recoveryRejected=true}}}
+if(!scenarioId){let local=null;try{local=localStorage.getItem(RECOVERY_KEY);if(!local){for(const key of LEGACY_RECOVERY_KEYS){try{local=localStorage.getItem(key);if(local){recoveredFromPreviousKey=true;break}}catch(e){}}}if(!local){for(const key of PREVIOUS_RECOVERY_KEYS){local=localStorage.getItem(key);if(local){recoveredFromPreviousKey=true;break}}}}catch(e){recoveryUnavailable=true}if(local){try{const normalized=normalizeIncomingProject(JSON.parse(local),{fromRecovery:true});project=normalized.project;recoveredFromBrowser=true;if(recoveredFromPreviousKey){try{localStorage.setItem(RECOVERY_KEY,JSON.stringify(project))}catch(e){}try{localStorage.setItem('taroke.rimixer.v1.draft',JSON.stringify(project))}catch(e){}}}catch(e){project=clone(baseProject);recoveryRejected=true}}}
 let state={
  chamber:'source',runtime:'stopped',tick:0,timer:null,runtimeSeq:null,followMode:'following',programmaticFollow:false,dirty:recoveredFromBrowser,fileHandle:null,lastSavedFileName:null,lastSavedAt:null,openAfterSave:false,
  selectedBankId:'above',selectedMaterialId:'m_mist',selectedInstrumentId:'ins_path',selectedStanzaId:'st_taroko_cycle',selectedRuleId:'rule_forest_pp_bs',selectedFlowId:'fl_taroko',selectedSurfaceId:null,selectedTakeId:null,
@@ -1096,7 +1097,7 @@ function validateProjectCandidate(input){
 
 function isNarrow(){return innerWidth<=720}
 function announce(text){const live=$('#liveRegion');live.textContent='';requestAnimationFrame(()=>live.textContent=text)}
-function persist(){project.meta.updatedAt=new Date().toISOString();try{localStorage.setItem(RECOVERY_KEY,JSON.stringify(project))}catch(e){}}
+function persist(){project.meta.updatedAt=new Date().toISOString();try{localStorage.setItem(RECOVERY_KEY,JSON.stringify(project))}catch(e){}try{localStorage.setItem('taroke.rimixer.v1.draft',JSON.stringify(project))}catch(e){}}
 function markDirty(){state.dirty=true;state.previewFresh=false;persist();updateProjectBar()}
 function snapshotUndo(){undoStack.push(clone(project));if(undoStack.length>40)undoStack.shift()}
 function transact(label,fn){snapshotUndo();fn();markDirty();repairSelection();render();enhanceMenus();showToast(label)}
@@ -1405,7 +1406,7 @@ function pause(){if(state.timer)clearInterval(state.timer);state.timer=null;stat
 function stop(){if(state.timer)clearInterval(state.timer);state.timer=null;state.runtime='stopped';resetRuntimeSequence();render()}
 function move(arr,i,dir){const j=i+dir;if(j<0||j>=arr.length)return false;const [x]=arr.splice(i,1);arr.splice(j,0,x);return true}
 function insertVariable(routeId,name){const ta=$('#route_'+CSS.escape(routeId));if(!ta)return;const start=ta.selectionStart??ta.value.length,end=ta.selectionEnd??start;ta.value=ta.value.slice(0,start)+'{'+name+'}'+ta.value.slice(end);ta.dispatchEvent(new Event('change',{bubbles:true}));requestAnimationFrame(()=>{ta.focus();ta.setSelectionRange(start+name.length+2,start+name.length+2)})}
-function artifactFileBase(){return (project.source.title||'taroke-remix').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'taroke-remix'}
+function artifactFileBase(){return (project.source.title||'taroko-remix').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'taroko-remix'}
 function buildStaticArtifact(){
  const events=surfaceWindowEntries().slice(-Math.max(1,Number(project.meta?.surfaceRetention)||60)),lines=events.length?events.map(e=>e.type==='breath'?'<p class="breath" aria-hidden="true">&nbsp;</p>':`<p>${esc(surfaceRecord(e.recordId)?.text||'')}</p>`).join(''):'<p class="empty-line">No Surface events have been retained yet.</p>';
  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(project.source.title)}</title><style>*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#090b09;color:#eee7d8}body{width:100%;max-width:760px;margin:0 auto;padding:clamp(18px,5vw,42px);overflow-x:hidden;overflow-wrap:anywhere;font:clamp(19px,5.4vw,24px)/1.55 Georgia,serif}header{font:clamp(10px,2.8vw,12px)/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;color:#a9a392;border-bottom:1px solid #384032;padding-bottom:18px;margin-bottom:28px;overflow-wrap:anywhere}.kind{color:#b7ff38;letter-spacing:.08em;text-transform:uppercase;font-size:.8em}p{max-width:28em;margin:0 0 1.15em}.breath{height:1.55em;margin:0}.empty-line{color:#8f9188;font-style:italic}main{min-width:0}</style></head><body><header><span class="kind">Static remix</span><br><strong>${esc(project.source.title)}</strong><br>${esc(project.source.author)}</header><main>${lines}</main></body></html>`

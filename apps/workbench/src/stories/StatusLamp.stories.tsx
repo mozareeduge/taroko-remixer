@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { StatusLamp } from "@taroke/ui";
+import { StatusLamp } from "@taroko/ui";
 
 const meta: Meta<typeof StatusLamp> = {
   title: "UI/StatusLamp",

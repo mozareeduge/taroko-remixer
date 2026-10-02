@@ -1,20 +1,20 @@
 import type {
-  TarokeProject,
+  TarokoProject,
   FlowScene,
   RunState,
   QueueEntry,
-  TarokeEvent,
+  TarokoEvent,
   LineEvent,
   BreathEvent,
   ErrorEvent,
   ConsumedInput,
   TriggerResult,
-} from "@taroke/schema";
+} from "@taroko/schema";
 import { weighted, getTrayTokens, getDevice, getStanza } from "./selection.js";
 import type { RNG } from "./selection.js";
 import { formToken, articleFor } from "./forms.js";
 
-export function activeScenes(project: TarokeProject): FlowScene[] {
+export function activeScenes(project: TarokoProject): FlowScene[] {
   return (project.flowScenes ?? []).filter(
     (s) =>
       s.enabled &&
@@ -24,7 +24,7 @@ export function activeScenes(project: TarokeProject): FlowScene[] {
 }
 
 export function expandStanza(
-  project: TarokeProject,
+  project: TarokoProject,
   stanzaId: string | null | undefined,
   rng: RNG = Math.random,
 ): QueueEntry[] {
@@ -69,7 +69,7 @@ export function cleanSurfaceText(s: string): string {
     .trim();
 }
 
-export function nextSlot(project: TarokeProject, runState: Partial<RunState> = {}, rng: RNG = Math.random): QueueEntry {
+export function nextSlot(project: TarokoProject, runState: Partial<RunState> = {}, rng: RNG = Math.random): QueueEntry {
   runState.queue = Array.isArray(runState.queue) ? runState.queue : [];
   if (!runState.queue.length) {
     const scene = weighted(activeScenes(project), rng) ?? (project.flowScenes ?? [])[0] ?? null;
@@ -83,7 +83,7 @@ export function nextSlot(project: TarokeProject, runState: Partial<RunState> = {
 }
 
 export function renderDeviceEvent(
-  project: TarokeProject,
+  project: TarokoProject,
   deviceId: string,
   slot: QueueEntry,
   runState: Partial<RunState> = {},
@@ -215,10 +215,10 @@ export function renderDeviceEvent(
 }
 
 export function generateEvent(
-  project: TarokeProject,
+  project: TarokoProject,
   runState: Partial<RunState> = {},
   rng: RNG = Math.random,
-): TarokeEvent {
+): TarokoEvent {
   const tick = Number(runState.tick ?? 0);
   const slot = nextSlot(project, runState, rng);
   if (slot.type === "breath") {

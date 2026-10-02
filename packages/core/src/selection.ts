@@ -1,4 +1,4 @@
-import type { Token, TarokeProject, LineDevice, StanzaPattern } from "@taroke/schema";
+import type { Token, TarokoProject, LineDevice, StanzaPattern } from "@taroko/schema";
 
 export type RNG = () => number;
 
@@ -22,16 +22,16 @@ export function weighted<T extends { weight?: number; chance?: number }>(
   return items[items.length - 1] ?? null;
 }
 
-export function getTrayTokens(project: TarokeProject, name: string): Token[] {
+export function getTrayTokens(project: TarokoProject, name: string): Token[] {
   return (project.materials?.trays?.[name] ?? []).filter(
     (t) => t && String(t.literal ?? "").trim(),
   );
 }
 
-export function getDevice(project: TarokeProject, id: string): LineDevice | undefined {
+export function getDevice(project: TarokoProject, id: string): LineDevice | undefined {
   return (project.lineDevices ?? []).find((m) => m.id === id);
 }
 
-export function getStanza(project: TarokeProject, id: string): StanzaPattern | undefined {
+export function getStanza(project: TarokoProject, id: string): StanzaPattern | undefined {
   return (project.stanzaPatterns ?? []).find((s) => s.id === id);
 }

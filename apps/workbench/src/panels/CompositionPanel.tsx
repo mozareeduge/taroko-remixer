@@ -7,8 +7,8 @@ import {
   addStanzaSlot, removeStanzaSlot, reorderStanzaSlots, setSlotChance, setSlotRepeat,
   addFlowScene, removeFlowScene, toggleSceneEnabled, setSceneChance,
 } from "../store/commands.js";
-import { uid } from "@taroke/core";
-import type { StanzaSlot } from "@taroke/schema";
+import { uid } from "@taroko/core";
+import type { StanzaSlot } from "@taroko/schema";
 
 export function CompositionPanel() {
   const dispatch = useAppDispatch();

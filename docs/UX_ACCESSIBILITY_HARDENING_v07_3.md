@@ -1,4 +1,4 @@
-# TAROKE REMIXER — UX and Accessibility Hardening v07.3
+# TAROKO REMIXER — UX and Accessibility Hardening v07.3
 
 Date: 2026-07-08
 Branch: `claude/v07-3-ux-accessibility-ulb7pg`

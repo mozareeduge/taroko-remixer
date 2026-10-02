@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { cleanSurfaceText, generateEvent, activeScenes } from "../generation.js";
 import { defaultProject } from "../migration.js";
-import type { RunState } from "@taroke/schema";
+import type { RunState } from "@taroko/schema";
 
 describe("cleanSurfaceText", () => {
   it("removes unfilled {slot} placeholders", () => {

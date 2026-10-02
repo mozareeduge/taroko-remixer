@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { defaultProject, migrateProject } from "@taroke/core";
-import type { TarokeProject } from "@taroke/schema";
+import { defaultProject, migrateProject } from "@taroko/core";
+import type { TarokoProject } from "@taroko/schema";
 import type { ProjectState } from "./types.js";
 
 const initialState: ProjectState = {
@@ -16,7 +16,7 @@ const projectSlice = createSlice({
   initialState,
   reducers: {
     // Set the whole project (e.g. after import)
-    setProject(state, action: PayloadAction<TarokeProject>) {
+    setProject(state, action: PayloadAction<TarokoProject>) {
       state.present = migrateProject(action.payload);
       state.isDirty = true;
     },
@@ -33,12 +33,12 @@ const projectSlice = createSlice({
     mutateProject: {
       reducer(
         state,
-        action: PayloadAction<{ present: TarokeProject; label: string; patches: unknown[]; inversePatches: unknown[]; skipHistory?: boolean }>,
+        action: PayloadAction<{ present: TarokoProject; label: string; patches: unknown[]; inversePatches: unknown[]; skipHistory?: boolean }>,
       ) {
         state.present = action.payload.present;
         state.isDirty = true;
       },
-      prepare(payload: { label: string; present: TarokeProject; patches: unknown[]; inversePatches: unknown[]; skipHistory?: boolean }) {
+      prepare(payload: { label: string; present: TarokoProject; patches: unknown[]; inversePatches: unknown[]; skipHistory?: boolean }) {
         return { payload };
       },
     },

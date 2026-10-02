@@ -8,12 +8,12 @@ The complete program uses claude-sonnet-4-6 at medium effort. Do not escalate to
 ---
 
 TASK:
-Execute the TAROKE RIMIXER v08 hybrid editor rebuild as one coordinated multi-agent program composed of bounded, reviewed work packages.
+Execute the TAROKO REMIXER v08 hybrid editor rebuild as one coordinated multi-agent program composed of bounded, reviewed work packages.
 
 Use a dynamic workflow or agent team. Do not implement the rebuild as one undifferentiated branch or one agent context.
 
 REPOSITORY:
-mozareeduge/taroke-remixer
+mozareeduge/taroko-remixer
 
 IMMUTABLE BASELINE:
 tag: v07.8-release-checkpoint

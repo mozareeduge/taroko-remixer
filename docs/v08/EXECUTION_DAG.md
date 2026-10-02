@@ -1,4 +1,4 @@
-# TAROKE RIMIXER v08 — Execution DAG
+# TAROKO REMIXER v08 — Execution DAG
 
 **Model:** claude-sonnet-4-6  **Effort:** medium  
 **Baseline:** 534 passed, 0 failed (tag: v07.8-release-checkpoint / f7183f01)  

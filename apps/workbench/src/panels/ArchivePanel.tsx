@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from "../store/hooks.js";
 import { setProject } from "../store/projectSlice.js";
 import { setPreviewFresh, setPreviewHtml } from "../store/editorSlice.js";
 import { showReceipt } from "../store/importReceiptSlice.js";
-import { exportProjectJson, exportProjectHtml, importProjectWithReceipt, downloadName } from "@taroke/core";
+import { exportProjectJson, exportProjectHtml, importProjectWithReceipt, downloadName } from "@taroko/core";
 
 type PreviewLifecycle = "unbuilt" | "fresh" | "stale" | "error";
 

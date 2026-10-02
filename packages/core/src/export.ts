@@ -1,9 +1,9 @@
-import { THEME_TOKENS, SCHEMA_VERSION, EDITOR_VERSION } from "@taroke/schema";
-import type { TarokeProject } from "@taroke/schema";
+import { THEME_TOKENS, SCHEMA_VERSION, EDITOR_VERSION } from "@taroko/schema";
+import type { TarokoProject } from "@taroko/schema";
 import { esc } from "./utils.js";
 import { normalizeIdLabel } from "./utils.js";
 import { migrateProject, validateProject } from "./migration.js";
-import { IRREGULAR_PLURALS, IRREGULAR_VERB3 } from "@taroke/schema";
+import { IRREGULAR_PLURALS, IRREGULAR_VERB3 } from "@taroko/schema";
 
 export interface ImportReceipt {
   filename: string;
@@ -32,7 +32,7 @@ export interface ImportReceipt {
 export function importProjectWithReceipt(
   text: string,
   filename: string,
-): { project: TarokeProject; receipt: ImportReceipt } {
+): { project: TarokoProject; receipt: ImportReceipt } {
   const s = String(text ?? "");
 
   // Detect format
@@ -143,11 +143,11 @@ export function importProjectWithReceipt(
   return { project, receipt };
 }
 
-export function downloadName(project: TarokeProject, ext: string): string {
-  return normalizeIdLabel(project.project?.title ?? "taroke_rimix") + ext;
+export function downloadName(project: TarokoProject, ext: string): string {
+  return normalizeIdLabel(project.project?.title ?? "taroko_rimix") + ext;
 }
 
-export function surfaceCss(project: TarokeProject): string {
+export function surfaceCss(project: TarokoProject): string {
   const theme = THEME_TOKENS[project.surface?.theme ?? ""] ?? THEME_TOKENS["night"]!;
   const size = Number(project.surface?.fontSize ?? 21);
   const lh = Number(project.surface?.lineHeight ?? 1.48);
@@ -170,13 +170,13 @@ function safeExportUrl(url: string): string | null {
   return /^https?:\/\//i.test(url) ? url : null;
 }
 
-export function safeJsonForHtml(project: TarokeProject): string {
+export function safeJsonForHtml(project: TarokoProject): string {
   return JSON.stringify(project, null, 2)
     .replace(/<\//gi, "<\\/")
     .replace(/<!--/g, "<\\!--");
 }
 
-export function exportProjectHtml(project: TarokeProject): string {
+export function exportProjectHtml(project: TarokoProject): string {
   const json = safeJsonForHtml(project);
   const css = surfaceCss(project);
   const info = project.project ?? {};
@@ -207,14 +207,14 @@ export function exportProjectHtml(project: TarokeProject): string {
     ? `<details class="identity"><summary>Statement &amp; credits</summary><div class="identity__body">${stmtHtml}${credHtml}</div></details>`
     : "";
 
-  return `<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><style>${css}</style></head><body><script type="application/json" id="taroke-project">${json}</script><div class="wrap"><div class="head" id="head">${esc(title)}</div>${bylineHtml}${detailsHtml}<main class="stage" id="stage"></main><div class="trace" id="trace">TAROKE RIMIXER artifact / import this HTML to edit</div></div><script>${standaloneRuntime()}<\/script></body></html>`;
+  return `<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><style>${css}</style></head><body><script type="application/json" id="taroke-project">${json}</script><div class="wrap"><div class="head" id="head">${esc(title)}</div>${bylineHtml}${detailsHtml}<main class="stage" id="stage"></main><div class="trace" id="trace">TAROKO REMIXER artifact / import this HTML to edit</div></div><script>${standaloneRuntime()}<\/script></body></html>`;
 }
 
-export function exportProjectJson(project: TarokeProject): string {
+export function exportProjectJson(project: TarokoProject): string {
   return JSON.stringify(project, null, 2);
 }
 
-export function extractProjectFromText(text: string): TarokeProject {
+export function extractProjectFromText(text: string): TarokoProject {
   const s = String(text ?? "");
   const m = s.match(/<script[^>]*id=["']taroke-project["'][^>]*>([\s\S]*?)<\/script>/i);
   const raw = m

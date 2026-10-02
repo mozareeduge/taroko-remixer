@@ -26,8 +26,8 @@ import {
   setSurfaceSpeed,
   setCasePolicy,
 } from "../../store/commands.js";
-import { defaultProject } from "@taroke/core";
-import { uid } from "@taroke/core";
+import { defaultProject } from "@taroko/core";
+import { uid } from "@taroko/core";
 
 describe("commands — project info", () => {
   it("setProjectTitle produces correct patch", () => {

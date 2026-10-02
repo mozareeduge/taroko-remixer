@@ -2,7 +2,7 @@
 
 ## Summary
 
-v07.5d fixes four classes of UX defects that broke perceived continuity in the TAROKE REMIXER editor:
+v07.5d fixes four classes of UX defects that broke perceived continuity in the TAROKO REMIXER editor:
 
 | ID | Defect | Fix |
 |----|--------|-----|

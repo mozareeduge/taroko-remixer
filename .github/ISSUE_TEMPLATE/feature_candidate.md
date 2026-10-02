@@ -1,6 +1,6 @@
 ---
 name: Feature candidate
-about: Propose a new capability for TAROKE RIMIXER
+about: Propose a new capability for TAROKO REMIXER
 labels: feature-candidate
 ---
 

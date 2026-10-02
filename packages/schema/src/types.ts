@@ -178,7 +178,7 @@ export interface ProjectNote {
 
 // ── Full Project ──────────────────────────────────────────────────────────────
 
-export interface TarokeProject {
+export interface TarokoProject {
   schemaVersion: string;
   project: ProjectInfo;
   workbench: WorkbenchPrefs;
@@ -268,7 +268,7 @@ export interface ErrorEvent {
   error: string;
 }
 
-export type TarokeEvent = LineEvent | BreathEvent | ErrorEvent;
+export type TarokoEvent = LineEvent | BreathEvent | ErrorEvent;
 
 // ── Validation ────────────────────────────────────────────────────────────────
 

@@ -33,7 +33,7 @@ skip when the save is active.
 
 | Item | Before | After |
 |------|--------|-------|
-| `<title>` in index.html | `TAROKE RIMIXER v07 reset` | `TAROKE RIMIXER` |
+| `<title>` in index.html | `TAROKO REMIXER v07 reset` | `TAROKO REMIXER` |
 | package.json version | `0.7.0-layout-pass` | `0.7.8` |
 | CHANGELOG.md | Covered only v07 route-pass | Full cumulative changelog v07–v07.8 |
 | docs/RELEASE_v07_7.md | Deferred count to TEST_REPORT | Added: "520 passed, 0 failed" explicitly |

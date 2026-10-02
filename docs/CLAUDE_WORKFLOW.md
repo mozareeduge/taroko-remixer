@@ -1,4 +1,4 @@
-# TAROKE REMIXER — Claude Code Workflow
+# TAROKO REMIXER — Claude Code Workflow
 
 This document explains how Claude Code sessions are structured for this project
 and how Mohammad (the project owner) interacts with them.

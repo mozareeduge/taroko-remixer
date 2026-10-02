@@ -1,11 +1,11 @@
-import { SCHEMA_VERSION, TRAY_DEFS } from "@taroke/schema";
+import { SCHEMA_VERSION, TRAY_DEFS } from "@taroko/schema";
 import type {
-  TarokeProject,
+  TarokoProject,
   Token,
   LineDevice,
   StanzaPattern,
   ValidationIssue,
-} from "@taroke/schema";
+} from "@taroko/schema";
 import { uid, clone, token } from "./utils.js";
 import { roleForTray } from "./utils.js";
 import { getTrayTokens, getDevice, getStanza } from "./selection.js";
@@ -82,8 +82,8 @@ export function classicStanzaPatterns(): StanzaPattern[] {
   ];
 }
 
-export function defaultProject(): TarokeProject {
-  const trays: TarokeProject["materials"]["trays"] = {
+export function defaultProject(): TarokoProject {
+  const trays: TarokoProject["materials"]["trays"] = {
     above:   ["grave", "paper-body", "unknown-box", "gateway", "baby", "office", "joint", "guardrail", "giant-hole"].map((s) => token(s, "noun")),
     below:   ["floor", "wall", "basement", "baby", "rat", "drug", "document", "piece"].map((s) => token(s, "noun")),
     trans:   ["carry", "push", "shake", "refuse", "flirt", "spank", "uplift", "expire"].map((s) => token(s, "verb")),
@@ -101,7 +101,7 @@ export function defaultProject(): TarokeProject {
       sourceTitle: "Taroko Gorge",
       sourceUrl: "https://collection.eliterature.org/3/works/taroko-gorge/taroko-gorge.html",
       statement: "A local-first remix machine for shaping source samples, form modulation, line devices, stanza patterns, flow scenes, triggers, output surface, and event tape.",
-      credits: "Made with TAROKE RIMIXER.",
+      credits: "Made with TAROKO REMIXER.",
       language: "en",
     },
     workbench: { theme: "night", relief: "medium", density: "standard", texture: "source" },
@@ -113,7 +113,7 @@ export function defaultProject(): TarokeProject {
     triggers: [{ id: "tr_box", name: "box intrusion", enabled: true, condition: { tray: "above", term: "unknown-box" }, chance: 35, action: { type: "append", text: "[BOX EVENT]" } }],
     surface: { family: "taroko", traceMode: "hidden", theme: "night", speedMs: 1200, retention: 28, fontSize: 21, lineHeight: 1.48, showTitle: true, showSource: true, showTick: false },
     notes: [],
-    meta: { createdWith: "TAROKE RIMIXER", updatedAt: new Date().toISOString() },
+    meta: { createdWith: "TAROKO REMIXER", updatedAt: new Date().toISOString() },
   };
 }
 
@@ -121,7 +121,7 @@ function hasProp(obj: unknown, key: string): boolean {
   return obj != null && Object.prototype.hasOwnProperty.call(obj, key);
 }
 
-export function migrateProject(input: unknown): TarokeProject {
+export function migrateProject(input: unknown): TarokoProject {
   const base = defaultProject();
   const p = clone(input ?? {}) as Record<string, unknown>;
   const inp = (input ?? {}) as Record<string, unknown>;
@@ -169,8 +169,8 @@ export function migrateProject(input: unknown): TarokeProject {
 
   // Normalize tokens and repair duplicate token IDs
   const seenIds = new Map<string, { bank: string; idx: number }>();
-  const repairs: TarokeProject["meta"]["importRepairs"] = [];
-  const trays: TarokeProject["materials"]["trays"] = {};
+  const repairs: TarokoProject["meta"]["importRepairs"] = [];
+  const trays: TarokoProject["materials"]["trays"] = {};
   for (const k of Object.keys(rawTrays)) {
     const trayRole = bankMeta[k]?.role ?? roleForTray(k);
     trays[k] = ((rawTrays[k] ?? []) as Array<string | Partial<Token>>).map((x, idx) => {
@@ -271,10 +271,10 @@ export function migrateProject(input: unknown): TarokeProject {
     (p["meta"] as Record<string, unknown>)["importRepairs"] = mergedRepairs;
   }
 
-  return p as unknown as TarokeProject;
+  return p as unknown as TarokoProject;
 }
 
-export function validateProject(project: TarokeProject): ValidationIssue[] {
+export function validateProject(project: TarokoProject): ValidationIssue[] {
   const issues: ValidationIssue[] = [];
   const push = (level: ValidationIssue["level"], area: string, message: string, action: string) =>
     issues.push({ level, area, message, action });
