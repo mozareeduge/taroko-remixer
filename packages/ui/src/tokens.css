@@ -72,10 +72,10 @@
   --tr-border-color: var(--tr-line);
 
   /* ── Shell dimensions ──────────────────────────────────────────────────── */
-  --tr-transport-h:  52px;
-  --tr-navigator-w:  216px;
-  --tr-inspector-w:  304px;
-  --tr-mobile-nav-h: 56px;
+  --tr-transport-h:  42px;
+  --tr-navigator-w:  182px;
+  --tr-inspector-w:  280px;
+  --tr-mobile-nav-h: 52px;
 
   /* ── Component dimensions ──────────────────────────────────────────────── */
   --tr-row-h:     28px;

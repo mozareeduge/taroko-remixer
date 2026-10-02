@@ -34,6 +34,7 @@ export function MaterialsPanel() {
   const [newBankLabel, setNewBankLabel] = useState("");
   const [dragFrom, setDragFrom] = useState<number | null>(null);
   const [dragOver, setDragOver] = useState<number | null>(null);
+  const [bankSearch, setBankSearch] = useState("");
   const addRef = useRef<HTMLInputElement>(null);
 
   const tokens = activeBank ? (project.materials.trays[activeBank] ?? []) : [];
@@ -98,12 +99,30 @@ export function MaterialsPanel() {
     dispatch(mutateProject(setTokenOverride(project, tokId, form, val)));
   }
 
+  const bankSearchLower = bankSearch.toLowerCase();
+  const visibleBanks = bankSearch
+    ? banks.filter((b) => {
+        const label = project.materials.bankMeta[b]?.label ?? b;
+        return label.toLowerCase().includes(bankSearchLower) || b.toLowerCase().includes(bankSearchLower);
+      })
+    : banks;
+
   return (
     <div className="tr-panel tr-panel--materials">
       <div className="tr-panel__sidebar">
         <div className="tr-panel__section-head">BANKS</div>
+        <div className="tr-panel__search-row">
+          <input
+            type="search"
+            className="tr-input tr-input--sm tr-input--search"
+            placeholder="Search banks…"
+            value={bankSearch}
+            onChange={(e) => setBankSearch(e.target.value)}
+            aria-label="Search banks"
+          />
+        </div>
         <ul className="tr-list" role="list">
-          {banks.map((b) => (
+          {visibleBanks.map((b) => (
             <li key={b} className="tr-list__item">
               <button
                 className={["tr-list__btn", activeBank === b ? "tr-list__btn--active" : ""].filter(Boolean).join(" ")}

@@ -1,6 +1,21 @@
 import { useAppDispatch, useAppSelector } from "../store/hooks.js";
 import { mutateProject } from "../store/projectSlice.js";
 import { setCasePolicy, setCompoundPolicy, setTokenOverride } from "../store/commands.js";
+import { KEEP_UNCHANGED_SENTINEL } from "@taroke/core";
+
+// Role-to-form mapping: only expose implemented, meaningful overrides per role.
+const ROLE_OVERRIDE_FORMS: Record<string, { key: string; label: string }[]> = {
+  noun:      [{ key: "singular", label: "Singular" }, { key: "plural", label: "Plural" }],
+  verb:      [{ key: "thirdSingular", label: "3rd singular" }, { key: "imperative", label: "Imperative" }],
+  adjective: [],
+  adverb:    [],
+  mixed:     [],
+  literal:   [],
+};
+
+function roleOverrideForms(role: string): { key: string; label: string }[] {
+  return ROLE_OVERRIDE_FORMS[role] ?? [];
+}
 
 export function FormsPanel() {
   const dispatch = useAppDispatch();
@@ -46,47 +61,68 @@ export function FormsPanel() {
 
         <div className="tr-panel__section-head">OVERRIDES</div>
         <p className="tr-forms__desc">
-          Override inflected forms for individual samples. Each bank row shows the token and its plural override.
+          Override inflected forms for individual samples. Overrides are role-relevant: nouns show
+          singular/plural, verbs show 3rd-singular/imperative. Literal and other roles have no
+          inflection overrides.
         </p>
         {banks.map((bankName) => {
           const tokens = project.materials.trays[bankName] ?? [];
-          if (tokens.length === 0) return null;
+          const bankRole = project.materials.bankMeta[bankName]?.role ?? "literal";
+          const overrideForms = roleOverrideForms(bankRole);
+          // Only show banks that have tokens AND have at least one override form
+          if (tokens.length === 0 || overrideForms.length === 0) return null;
           return (
             <details key={bankName} className="tr-forms__bank" open={bankName === banks[0]}>
               <summary className="tr-forms__bank-label">
-                {project.materials.bankMeta[bankName]?.label ?? bankName.toUpperCase()} ({tokens.length})
+                {project.materials.bankMeta[bankName]?.label ?? bankName.toUpperCase()}
+                <span className="tr-forms__bank-role">({bankRole})</span>
+                <span className="tr-forms__bank-count">{tokens.length}</span>
               </summary>
-              <table className="tr-table">
+              <table className="tr-table" aria-label={`Form overrides for ${project.materials.bankMeta[bankName]?.label ?? bankName}`}>
                 <thead>
                   <tr>
-                    <th scope="col" className="tr-table__th">Token</th>
-                    <th scope="col" className="tr-table__th">Plural override</th>
+                    <th scope="col" className="tr-table__th">Sample</th>
+                    {overrideForms.map(({ key, label }) => (
+                      <th key={key} scope="col" className="tr-table__th">{label}</th>
+                    ))}
                   </tr>
                 </thead>
                 <tbody>
-                  {tokens.map((tok) => {
-                    const pluralOverride = project.forms.overrides[tok.id]?.["plural"] ?? "";
-                    return (
-                      <tr key={tok.id} className="tr-table__row">
-                        <td className="tr-table__td">{tok.literal}</td>
-                        <td className="tr-table__td">
-                          <input
-                            className="tr-input"
-                            value={pluralOverride}
-                            placeholder={`${tok.literal}s`}
-                            onChange={(e) => dispatch(mutateProject(setTokenOverride(project, tok.id, "plural", e.target.value)))}
-                            aria-label={`Plural override for ${tok.literal}`}
-                            data-override={`${tok.id}:plural`}
-                          />
-                        </td>
-                      </tr>
-                    );
-                  })}
+                  {tokens.map((tok) => (
+                    <tr key={tok.id} className="tr-table__row">
+                      <td className="tr-table__td tr-table__td--literal">{tok.literal}</td>
+                      {overrideForms.map(({ key, label }) => {
+                        const raw = project.forms.overrides[tok.id]?.[key] ?? "";
+                        const isKept = raw === KEEP_UNCHANGED_SENTINEL;
+                        const value = isKept ? "" : raw;
+                        return (
+                          <td key={key} className="tr-table__td">
+                            <input
+                              className="tr-input"
+                              value={value}
+                              placeholder={isKept ? "(unchanged)" : "(auto)"}
+                              onChange={(e) => dispatch(mutateProject(setTokenOverride(project, tok.id, key, e.target.value)))}
+                              aria-label={`${label} override for ${tok.literal}`}
+                              data-override={`${tok.id}:${key}`}
+                            />
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </details>
           );
         })}
+        {banks.every((b) => {
+          const role = project.materials.bankMeta[b]?.role ?? "literal";
+          return roleOverrideForms(role).length === 0 || (project.materials.trays[b]?.length ?? 0) === 0;
+        }) && (
+          <p className="tr-panel__empty">
+            No banks with inflectable roles (noun, verb). Assign a role to a bank in Banks &amp; Samples to see overrides here.
+          </p>
+        )}
       </div>
     </div>
   );
