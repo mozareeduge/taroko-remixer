@@ -1,6 +1,6 @@
 # Known Limits
 
-This document states the current known limitations of TAROKE RIMIXER honestly. It is not a list of bugs — it is a description of the deliberate scope and the non-trivial edges of what is and is not covered.
+This document states the current known limitations of TAROKE REMIXER honestly. It is not a list of bugs — it is a description of the deliberate scope and the non-trivial edges of what is and is not covered.
 
 ---
 

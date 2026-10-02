@@ -34,3 +34,8 @@ packages/*/src/**/*.d.ts.map
 .claude/state/
 .claude/sessions/
 .harness/
+
+# Local agent state and archived program bundle (kept on disk, not published)
+.claude/settings.local.json
+.claude/memory/
+TAROKE_v08_Hybrid_Rebuild_Claude_Program.zip

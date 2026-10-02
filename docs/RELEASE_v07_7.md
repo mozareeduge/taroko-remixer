@@ -6,13 +6,13 @@
 
 ## Description
 
-v07.7 is the public documentation pass for TAROKE RIMIXER. It introduces the public-facing documentation packet, a documentation verification script, and a recrafted README. No source files, generator logic, or test behavior were modified.
+v07.7 is the public documentation pass for TAROKE REMIXER. It introduces the public-facing documentation packet, a documentation verification script, and a recrafted README. No source files, generator logic, or test behavior were modified.
 
 ---
 
 ## Implemented in this pass
 
-- `docs/WHAT_IS_TAROKE_RIMIXER.md` — conceptual overview and scope definition.
+- `docs/WHAT_IS_TAROKE_REMIXER_KEEP.md` — conceptual overview and scope definition.
 - `docs/MAKE_A_REMIX.md` — practical chamber-by-chamber usage guide.
 - `docs/IMPORTING_AUTHORED_PROJECTS.md` — import contract, fidelity rules, format support.
 - `docs/EXPORT_PREVIEW_AND_RECOVERY.md` — JSON, standalone HTML, autosave, live preview, sandboxing.

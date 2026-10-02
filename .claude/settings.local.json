@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(node .claude/relay/run/verify_autorun_and_save_fix.mjs)",
-      "Bash(python3 -c ' *)"
-    ]
-  }
-}

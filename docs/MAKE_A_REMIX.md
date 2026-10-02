@@ -1,6 +1,6 @@
 # Make a Remix
 
-A practical walk-through of the TAROKE RIMIXER chambers in order. Each section matches a named step in the left-side navigation rail.
+A practical walk-through of the TAROKE REMIXER chambers in order. Each section matches a named step in the left-side navigation rail.
 
 ---
 

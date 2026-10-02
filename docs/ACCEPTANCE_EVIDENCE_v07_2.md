@@ -1,4 +1,4 @@
-# TAROKE RIMIXER — v07.2 Acceptance Evidence
+# TAROKE REMIXER — v07.2 Acceptance Evidence
 
 Date: 2026-07-08  
 Branch: `claude/taroke-rimixer-v07-2-acceptance-hnp61k`  

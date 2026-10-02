@@ -1,6 +1,6 @@
-# Claude Code Handoff — TAROKE RIMIXER
+# Claude Code Handoff — TAROKE REMIXER
 
-Objective: continue TAROKE RIMIXER in `https://github.com/mozareeduge/taroke-remixer` with minimum user back-and-forth and maximum autonomous verified sessions.
+Objective: continue TAROKE REMIXER in `https://github.com/mozareeduge/taroke-remixer` with minimum user back-and-forth and maximum autonomous verified sessions.
 
 Current baseline: v07 layout-pass. It is a functional static app, not a design/aesthetic phase.
 
@@ -11,7 +11,7 @@ Immediate rule: do not expand features until the current baseline is committed a
 Use this prompt in Claude Code from the repository root:
 
 ```text
-Inspect this repo. Bring in the current TAROKE RIMIXER static app if it is not already present. Keep it light: no framework, no build step, no new dependencies. The app must run from root index.html on GitHub Pages. Ensure .nojekyll exists. Run ./tests/run_all_tests.sh. Fix only blocking issues. Commit with message: "Land v07 layout-pass static workbench". Report changed files and test output only.
+Inspect this repo. Bring in the current TAROKE REMIXER static app if it is not already present. Keep it light: no framework, no build step, no new dependencies. The app must run from root index.html on GitHub Pages. Ensure .nojekyll exists. Run ./tests/run_all_tests.sh. Fix only blocking issues. Commit with message: "Land v07 layout-pass static workbench". Report changed files and test output only.
 ```
 
 Verification: root `index.html` opens app; tests pass; Pages can publish from main/root.

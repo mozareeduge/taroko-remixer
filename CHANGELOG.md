@@ -1,4 +1,12 @@
-# TAROKE RIMIXER — Changelog
+# TAROKE REMIXER — Changelog
+
+## 1.0.4 — 2026-10-02: corrected title spelling to TAROKE REMIXER; README intro
+
+- Visible title spelling corrected from "RIMIXER" to "REMIXER" in the live app (`next2/index.html`: tab title, social/meta tags, brand mark, project metadata text), README, RIGHTS and the public docs. Earlier entries below keep their original wording as history.
+- Visible version bumped from 1.0.3 to 1.0.4.
+- Unchanged on purpose so saved work keeps loading: the autosave keys `taroke.rimixer.v1.draft` and `taroke.rimixer.v1.0.1.draft`, the `rimixerVersion` field in bundled project metadata, and all file names.
+- README first screen rewritten for scholarly readers: byline, plain description in the *Taroko Gorge* lineage, citation line and rights pointer. Stale "Configure Pages" instruction removed.
+- Repository hygiene: `.claude/settings.local.json`, `.claude/memory/session-log.md` and the v08 program zip are no longer tracked (kept locally, now in `.gitignore`).
 
 ## 00 · Intakes chamber added (2026-09-01)
 

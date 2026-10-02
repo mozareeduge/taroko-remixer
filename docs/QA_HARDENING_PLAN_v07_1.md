@@ -1,4 +1,4 @@
-# QA Hardening Plan — TAROKE RIMIXER v07.1
+# QA Hardening Plan — TAROKE REMIXER v07.1
 
 Generated: 2026-07-08
 

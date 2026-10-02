@@ -1,6 +1,6 @@
 # Export, Preview, and Recovery
 
-TAROKE RIMIXER provides three mechanisms for preserving and distributing your work: project JSON export, standalone HTML export, and browser-local autosave. The Export chamber also offers a temporary live preview. This document explains each and how they differ.
+TAROKE REMIXER provides three mechanisms for preserving and distributing your work: project JSON export, standalone HTML export, and browser-local autosave. The Export chamber also offers a temporary live preview. This document explains each and how they differ.
 
 ---
 
@@ -10,7 +10,7 @@ The `.taroke.json` file is the **authoritative editable project archive**.
 
 - Contains the full project structure: sample banks, forms, devices, stanza patterns, flow scenes, triggers, surface settings, and notes.
 - Suitable for version control and long-term archiving.
-- Reimportable into TAROKE RIMIXER at any time.
+- Reimportable into TAROKE REMIXER at any time.
 - Does not contain generated run events — only the configuration that produces them.
 
 Export action: **Export project JSON** in the Export chamber.
@@ -24,7 +24,7 @@ The `.taroke.html` file is a **distributable playable artifact**.
 - Self-contained: includes the project data and the generator runtime in a single HTML file.
 - No editor, no dependencies — open in any modern browser.
 - Uses the same generator and runtime semantics as the editor's Run chamber (including trigger evaluation).
-- Can be reopened in TAROKE RIMIXER as an import source when the file includes the embedded project JSON.
+- Can be reopened in TAROKE REMIXER as an import source when the file includes the embedded project JSON.
 - Independent from editor autosave: exporting HTML does not touch localStorage.
 
 Export action: **Save playable HTML** in the Export chamber.
@@ -33,7 +33,7 @@ Export action: **Save playable HTML** in the Export chamber.
 
 ## Autosave and recovery
 
-TAROKE RIMIXER autosaves your working project to the browser's localStorage after each edit.
+TAROKE REMIXER autosaves your working project to the browser's localStorage after each edit.
 
 **Storage key:** `taroke.remixer.v07.draft`
 

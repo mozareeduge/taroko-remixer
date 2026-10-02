@@ -1,6 +1,6 @@
-# What Is TAROKE RIMIXER?
+# What Is TAROKE REMIXER?
 
-TAROKE RIMIXER is a **visible-constraint generative-poetry workbench** that runs entirely in your browser as a static local-first application.
+TAROKE REMIXER is a **visible-constraint generative-poetry workbench** that runs entirely in your browser as a static local-first application.
 
 ---
 
@@ -8,7 +8,7 @@ TAROKE RIMIXER is a **visible-constraint generative-poetry workbench** that runs
 
 Generative poetry built from authored constraints rather than opaque chance. Every bank of word-material, every route template, every trigger condition, and every surface setting is something you author and can inspect. The system picks from what you give it — it does not synthesize, guess, or use AI text generation.
 
-The name acknowledges Taroko Gorge (Nick Montfort, 2009) and the tradition of Taroko-style remix poems — works that take the architecture of a generative text and re-author its material. TAROKE RIMIXER is a workbench for making and running that kind of work.
+The name acknowledges Taroko Gorge (Nick Montfort, 2009) and the tradition of Taroko-style remix poems — works that take the architecture of a generative text and re-author its material. TAROKE REMIXER is a workbench for making and running that kind of work.
 
 ---
 

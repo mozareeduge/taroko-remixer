@@ -1,6 +1,6 @@
 # Importing Authored Projects
 
-TAROKE RIMIXER can import existing project files and preserve their authored structure exactly. This document describes the import contract, supported file formats, and what to expect when importing real artwork.
+TAROKE REMIXER can import existing project files and preserve their authored structure exactly. This document describes the import contract, supported file formats, and what to expect when importing real artwork.
 
 ---
 
@@ -42,7 +42,7 @@ The migration layer applies the following authority rules:
 
 ## Real Grave v3.2 acceptance
 
-TAROKE RIMIXER has been verified against a real authored project, Grave v3.2 (Mozare, *Grave v3.2 — constrained agency*), with the following characteristics:
+TAROKE REMIXER has been verified against a real authored project, Grave v3.2 (Mozare, *Grave v3.2 — constrained agency*), with the following characteristics:
 
 | Item | Count |
 |------|-------|
@@ -60,7 +60,7 @@ The actual artwork file is not distributed in this repository. See `docs/GRAVE_V
 
 ## Supported import formats
 
-- **`.taroke.json`** — a project JSON file exported from TAROKE RIMIXER. The authoritative editable project format.
-- **Standalone `.taroke.html`** — a playable HTML artifact exported from TAROKE RIMIXER. The editor extracts the embedded project JSON from these files when the file includes it.
+- **`.taroke.json`** — a project JSON file exported from TAROKE REMIXER. The authoritative editable project format.
+- **Standalone `.taroke.html`** — a playable HTML artifact exported from TAROKE REMIXER. The editor extracts the embedded project JSON from these files when the file includes it.
 
 Import files that do not match these formats, or that use unknown future schema versions, may not import correctly. Unknown schemas are not silently accepted; import fails with an error message rather than partially loading.
