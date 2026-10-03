@@ -222,7 +222,7 @@ try:
     assert artifact_html, 'exportProjectHtml returned nothing'
 
     # Write artifact to temp file, load as data: URL
-    artifact_path = pathlib.Path('/tmp/taroke_qa_artifact.html')
+    artifact_path = pathlib.Path(tempfile.gettempdir()) / 'taroke_qa_artifact.html'
     artifact_path.write_text(artifact_html, encoding='utf-8')
 
     # Verify artifact content WITHOUT running it in a browser tab
@@ -259,7 +259,7 @@ finally:
     try: proc2.kill()
     except Exception: pass
     try:
-        import os; os.unlink('/tmp/taroke_qa_artifact.html')
+        os.unlink(os.path.join(tempfile.gettempdir(), 'taroke_qa_artifact.html'))
     except Exception: pass
 
 # ─── Session 3: Mobile viewport layout ───────────────────────────────────────
