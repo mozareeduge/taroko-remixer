@@ -1,6 +1,6 @@
-# TAROKE RIMIXER
+# TAROKO RIMIXER
 
-TAROKE RIMIXER is a visible-constraint generative-poetry workbench that runs entirely in your browser. It is a local-first static application — no server, no account, no build step. Open `index.html` locally or publish the repository root with GitHub Pages. The app edits a project JSON describing a poem-machine and exports a standalone playable HTML artifact.
+TAROKO RIMIXER is a visible-constraint generative-poetry workbench that runs entirely in your browser. It is a local-first static application — no server, no account, no build step. Open `index.html` locally or publish the repository root with GitHub Pages. The app edits a project JSON describing a poem-machine and exports a standalone playable HTML artifact.
 
 **Live URL:** `https://mozareeduge.github.io/taroke-remixer/`
 
