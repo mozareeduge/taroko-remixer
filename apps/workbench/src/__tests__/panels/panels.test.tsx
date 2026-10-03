@@ -313,7 +313,7 @@ describe("ImportReceiptBanner", () => {
       repairCount: 2,
     }));
     wrap(<ImportReceiptBanner />, store);
-    expect(screen.getByText(/my-poem\.taroko\.json/)).toBeInTheDocument();
+    expect(screen.getByText(/my-poem\.taroke\.json/)).toBeInTheDocument();
     expect(screen.getByText(/2 repair/)).toBeInTheDocument();
   });
 
