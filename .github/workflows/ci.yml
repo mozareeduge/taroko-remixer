@@ -25,23 +25,55 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - uses: actions/setup-python@v5
+        if: runner.os != 'Windows'
+        with:
+          python-version: "3.11"
+      - name: Prepare job-local Python on Windows
+        if: runner.os == 'Windows'
+        run: |
+          # Use the runner's Python without system installation or registry writes.
+          python - <<'PY'
+          import os
+          import shutil
+          import subprocess
+          import sys
+          from pathlib import Path
+
+          venv = Path(os.environ["RUNNER_TEMP"]) / "v07-python"
+          subprocess.run([sys.executable, "-m", "venv", str(venv)], check=True)
+          scripts = venv / "Scripts"
+          # Legacy subprocesses explicitly invoke python3; provide that executable locally.
+          shutil.copyfile(scripts / "python.exe", scripts / "python3.exe")
+          with open(os.environ["GITHUB_PATH"], "a", encoding="utf-8") as path:
+              path.write(f"{scripts}\n")
+          PY
       - name: Install Python test deps
-        run: pip3 install websocket-client requests
+        run: python -m pip install websocket-client requests
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
       - name: Export Playwright Chromium binary path
         run: |
-          # Search ~/.cache/ms-playwright for the chrome binary (supports chrome-linux and chrome-linux64 layouts)
-          CHROMIUM=$(find ~/.cache/ms-playwright -maxdepth 6 \( -name "chrome" -o -name "chromium" \) -type f -perm /111 2>/dev/null | grep -v headless | sort | head -1 || true)
-          if [ -z "$CHROMIUM" ]; then
-            CHROMIUM=$(find ~/.cache/ms-playwright -maxdepth 6 -name "chrome" -type f 2>/dev/null | sort | head -1 || true)
-          fi
-          if [ -n "$CHROMIUM" ]; then
-            echo "TAROKE_CHROMIUM_PATH=$CHROMIUM" >> $GITHUB_ENV
-            PW_DIR=$(python3 -c "import pathlib; p=pathlib.Path('$CHROMIUM'); print(p.parents[2])" 2>/dev/null || true)
-            [ -n "$PW_DIR" ] && echo "PLAYWRIGHT_BROWSERS_PATH=$PW_DIR" >> $GITHUB_ENV || true
-          fi
-          echo "Resolved chromium: $CHROMIUM"
+          python - <<'PY'
+          import os
+          from pathlib import Path
+
+          home = Path.home()
+          roots = [home / ".cache/ms-playwright", home / "Library/Caches/ms-playwright"]
+          if os.environ.get("LOCALAPPDATA"):
+              roots.insert(0, Path(os.environ["LOCALAPPDATA"]) / "ms-playwright")
+          if os.environ.get("PLAYWRIGHT_BROWSERS_PATH"):
+              roots.insert(0, Path(os.environ["PLAYWRIGHT_BROWSERS_PATH"]))
+          patterns = ["chromium*/chrome-win*/chrome.exe", "chromium*/chrome-linux*/chrome",
+                      "chromium*/chrome-mac*/Chromium.app/Contents/MacOS/Chromium"]
+          chromium = next((p.resolve() for root in roots for pattern in patterns
+                           for p in sorted(root.glob(pattern), reverse=True) if p.is_file()), None)
+          if chromium is None:
+              raise SystemExit("Installed Playwright Chromium binary not found")
+          with open(os.environ["GITHUB_ENV"], "a", encoding="utf-8") as env:
+              env.write(f"TAROKE_CHROMIUM_PATH={chromium}\n")
+          print(f"Resolved chromium: {chromium}")
+          PY
       - name: Run v07 baseline (deterministic verifier)
         run: python3 scripts/verify_v07_baseline.py
         timeout-minutes: 15
@@ -56,7 +88,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
       - name: Install dependencies
         run: npm ci --ignore-scripts
       - name: Typecheck all packages
@@ -73,7 +104,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
       - name: Install dependencies
         run: npm ci --ignore-scripts
       - name: Run unit tests
@@ -90,17 +120,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
       - name: Install dependencies
         run: npm ci --ignore-scripts
       - name: Build /next/
         run: npm run build:next
-      - name: Upload /next/ artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: next-build
-          path: next/
-          retention-days: 7
 
   # ── v08 E2E (Chromium) ────────────────────────────────────────
   v08-e2e-chromium:
@@ -113,22 +136,19 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
       - name: Install dependencies
         run: npm ci --ignore-scripts
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
         working-directory: apps/workbench
-      - name: Download /next/ build
-        uses: actions/download-artifact@v4
-        with:
-          name: next-build
-          path: next/
+      - name: Build /next/ locally for E2E
+        run: npm run build:next
       - name: Run E2E (Chromium)
         run: npm run test:e2e -- --project=chromium
         working-directory: apps/workbench
       - name: Upload test report on failure
         if: failure()
+        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           name: chromium-report
@@ -148,22 +168,19 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
       - name: Install dependencies
         run: npm ci --ignore-scripts
       - name: Install Playwright Firefox
         run: npx playwright install --with-deps firefox
         working-directory: apps/workbench
-      - name: Download /next/ build
-        uses: actions/download-artifact@v4
-        with:
-          name: next-build
-          path: next/
+      - name: Build /next/ locally for E2E
+        run: npm run build:next
       - name: Run E2E (Firefox)
         run: npm run test:e2e -- --project=firefox
         working-directory: apps/workbench
       - name: Upload test report on failure
         if: failure()
+        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           name: firefox-report
@@ -183,22 +200,19 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
       - name: Install dependencies
         run: npm ci --ignore-scripts
       - name: Install Playwright WebKit
         run: npx playwright install --with-deps webkit
         working-directory: apps/workbench
-      - name: Download /next/ build
-        uses: actions/download-artifact@v4
-        with:
-          name: next-build
-          path: next/
+      - name: Build /next/ locally for E2E
+        run: npm run build:next
       - name: Run E2E (WebKit)
         run: npm run test:e2e -- --project=webkit
         working-directory: apps/workbench
       - name: Upload test report on failure
         if: failure()
+        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           name: webkit-report
@@ -218,22 +232,19 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
       - name: Install dependencies
         run: npm ci --ignore-scripts
       - name: Install Playwright Chromium + WebKit
         run: npx playwright install --with-deps chromium webkit
         working-directory: apps/workbench
-      - name: Download /next/ build
-        uses: actions/download-artifact@v4
-        with:
-          name: next-build
-          path: next/
+      - name: Build /next/ locally for E2E
+        run: npm run build:next
       - name: Run E2E (mobile-portrait + webkit-mobile)
         run: npm run test:e2e -- --project=mobile-portrait --project=webkit-mobile
         working-directory: apps/workbench
       - name: Upload test report on failure
         if: failure()
+        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           name: mobile-report
