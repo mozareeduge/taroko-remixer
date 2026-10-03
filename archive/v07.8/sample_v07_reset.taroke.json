@@ -1,0 +1,606 @@
+{
+  "schemaVersion": "0.7-reset",
+  "project": {
+    "title": "Grave sample",
+    "author": "Mozare",
+    "sourceTitle": "Taroko Gorge",
+    "sourceUrl": "https://collection.eliterature.org/3/works/taroko-gorge/taroko-gorge.html",
+    "statement": "A local-first remix machine for shaping source samples, form modulation, line devices, stanza patterns, flow scenes, triggers, output surface, and event tape.",
+    "credits": "Made with TAROKE RIMIXER.",
+    "language": "en"
+  },
+  "workbench": {
+    "theme": "night",
+    "relief": "medium",
+    "density": "standard",
+    "texture": "source"
+  },
+  "materials": {
+    "trays": {
+      "above": [
+        {
+          "id": "tok_r91l7xokf09",
+          "literal": "grave",
+          "role": "noun",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_5vb2q86kf09",
+          "literal": "paper-body",
+          "role": "noun",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_qo2r1d9kf09",
+          "literal": "unknown-box",
+          "role": "noun",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_htnsimdkf09",
+          "literal": "gateway",
+          "role": "noun",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_rctejahkf09",
+          "literal": "baby",
+          "role": "noun",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_kwd0s37kf09",
+          "literal": "office",
+          "role": "noun",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_baay403kf09",
+          "literal": "joint",
+          "role": "noun",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_eohkuabkf09",
+          "literal": "guardrail",
+          "role": "noun",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_jhkxglhkf09",
+          "literal": "giant-hole",
+          "role": "noun",
+          "weight": 1,
+          "lockedLiteral": false
+        }
+      ],
+      "below": [
+        {
+          "id": "tok_seo7p99kf09",
+          "literal": "floor",
+          "role": "noun",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_c8zrmq0kf09",
+          "literal": "wall",
+          "role": "noun",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_msxcmclkf09",
+          "literal": "basement",
+          "role": "noun",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_fodkoprkf09",
+          "literal": "baby",
+          "role": "noun",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_cqcuwuekf09",
+          "literal": "rat",
+          "role": "noun",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_z8f892okf09",
+          "literal": "drug",
+          "role": "noun",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_fb5st30kf09",
+          "literal": "document",
+          "role": "noun",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_ecusw1skf09",
+          "literal": "piece",
+          "role": "noun",
+          "weight": 1,
+          "lockedLiteral": false
+        }
+      ],
+      "trans": [
+        {
+          "id": "tok_u0n7s86kf09",
+          "literal": "carry",
+          "role": "verb",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_z4cplknkf09",
+          "literal": "push",
+          "role": "verb",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_ppgy3uykf09",
+          "literal": "shake",
+          "role": "verb",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_jiyc2y5kf09",
+          "literal": "refuse",
+          "role": "verb",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_6wm60oikf09",
+          "literal": "flirt",
+          "role": "verb",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_1679mlvkf09",
+          "literal": "spank",
+          "role": "verb",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_tl9lwxakf09",
+          "literal": "uplift",
+          "role": "verb",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_ho4lz6qkf09",
+          "literal": "expire",
+          "role": "verb",
+          "weight": 1,
+          "lockedLiteral": false
+        }
+      ],
+      "imper": [
+        {
+          "id": "tok_mh9h5s5kf09",
+          "literal": "enter",
+          "role": "verb",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_8u95z2ikf09",
+          "literal": "leave",
+          "role": "verb",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_l065r9ykf09",
+          "literal": "drink",
+          "role": "verb",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_ptoxdo7kf09",
+          "literal": "twist",
+          "role": "verb",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_jslhcx9kf09",
+          "literal": "package",
+          "role": "verb",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_qpubuvhkf09",
+          "literal": "mark",
+          "role": "verb",
+          "weight": 1,
+          "lockedLiteral": false
+        }
+      ],
+      "intrans": [
+        {
+          "id": "tok_5qg3znpkf09",
+          "literal": "rush",
+          "role": "verb",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_6xo5h9ekf09",
+          "literal": "rise",
+          "role": "verb",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_17qr5jokf09",
+          "literal": "wait",
+          "role": "verb",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_1icao7tkf09",
+          "literal": "soak",
+          "role": "verb",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_mikqroekf09",
+          "literal": "expire",
+          "role": "verb",
+          "weight": 1,
+          "lockedLiteral": false
+        }
+      ],
+      "texture": [
+        {
+          "id": "tok_ggt4wfrkf09",
+          "literal": "paper",
+          "role": "noun",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_f485uz8kf09",
+          "literal": "foil",
+          "role": "noun",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_cix1di6kf09",
+          "literal": "garbage",
+          "role": "noun",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_m8a1iwqkf09",
+          "literal": "shroud",
+          "role": "noun",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_6ra6lu0kf09",
+          "literal": "receipt",
+          "role": "noun",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_cstx795kf09",
+          "literal": "sticky",
+          "role": "noun",
+          "weight": 1,
+          "lockedLiteral": false
+        }
+      ],
+      "adjs": [
+        {
+          "id": "tok_or303clkf09",
+          "literal": "wet",
+          "role": "adjective",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_dvri0ylkf09",
+          "literal": "broken",
+          "role": "adjective",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_22n8olrkf09",
+          "literal": "folded",
+          "role": "adjective",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_oaabbiokf09",
+          "literal": "legal",
+          "role": "adjective",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_9ccg7z9kf09",
+          "literal": "black",
+          "role": "adjective",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_cqt4lfekf09",
+          "literal": "exploded",
+          "role": "adjective",
+          "weight": 1,
+          "lockedLiteral": false
+        },
+        {
+          "id": "tok_rs17jtdkf09",
+          "literal": "rainbow",
+          "role": "adjective",
+          "weight": 1,
+          "lockedLiteral": false
+        }
+      ],
+      "reserve": []
+    }
+  },
+  "forms": {
+    "language": "en",
+    "casePolicy": "preserve",
+    "compoundPolicy": "head",
+    "overrides": {}
+  },
+  "lineDevices": [
+    {
+      "id": "ld_path",
+      "name": "PATH",
+      "enabled": true,
+      "description": "Actor / action / object line device.",
+      "inputs": [
+        {
+          "slot": "above",
+          "tray": "above",
+          "role": "noun"
+        },
+        {
+          "slot": "trans",
+          "tray": "trans",
+          "role": "verb"
+        },
+        {
+          "slot": "below",
+          "tray": "below",
+          "role": "noun"
+        }
+      ],
+      "routes": [
+        {
+          "id": "rt_path_plural",
+          "name": "plural",
+          "weight": 55,
+          "template": "{above:plural} {trans:base} the {below:literal}."
+        },
+        {
+          "id": "rt_path_singular",
+          "name": "singular",
+          "weight": 25,
+          "template": "{article:a} {above:singular} {trans:thirdSingular} the {below:literal}."
+        },
+        {
+          "id": "rt_path_literal",
+          "name": "literal rough",
+          "weight": 20,
+          "template": "{above:literal} {trans:literal} the {below:literal}."
+        }
+      ]
+    },
+    {
+      "id": "ld_site",
+      "name": "SITE",
+      "enabled": true,
+      "description": "Movement / state line device.",
+      "inputs": [
+        {
+          "slot": "thing",
+          "tray": "above",
+          "role": "noun"
+        },
+        {
+          "slot": "intrans",
+          "tray": "intrans",
+          "role": "verb"
+        }
+      ],
+      "routes": [
+        {
+          "id": "rt_site_plural",
+          "name": "plural",
+          "weight": 60,
+          "template": "{thing:plural} {intrans:base}."
+        },
+        {
+          "id": "rt_site_singular",
+          "name": "singular",
+          "weight": 25,
+          "template": "{article:a} {thing:singular} {intrans:thirdSingular}."
+        },
+        {
+          "id": "rt_site_literal",
+          "name": "literal rough",
+          "weight": 15,
+          "template": "{thing:literal} {intrans:literal}."
+        }
+      ]
+    },
+    {
+      "id": "ld_cave",
+      "name": "CAVE",
+      "enabled": true,
+      "description": "Command / texture / breath line device.",
+      "inputs": [
+        {
+          "slot": "imper",
+          "tray": "imper",
+          "role": "verb"
+        },
+        {
+          "slot": "adjs",
+          "tray": "adjs",
+          "role": "adjective"
+        },
+        {
+          "slot": "texture",
+          "tray": "texture",
+          "role": "noun"
+        }
+      ],
+      "routes": [
+        {
+          "id": "rt_cave_command",
+          "name": "command",
+          "weight": 80,
+          "template": "{imper:literal} the {adjs:literal} {texture:singular}..."
+        },
+        {
+          "id": "rt_cave_signal",
+          "name": "signal command",
+          "weight": 20,
+          "template": "{imper:uppercase} the {adjs:literal} {texture:singular}..."
+        }
+      ]
+    }
+  ],
+  "stanzaPatterns": [
+    {
+      "id": "st_classic",
+      "name": "Classic Taroko stanza",
+      "enabled": true,
+      "description": "PATH, optional SITE loop, PATH, breath, CAVE, breath.",
+      "slots": [
+        {
+          "id": "slot_sjidlwfkf0a",
+          "type": "device",
+          "deviceId": "ld_path",
+          "label": "PATH",
+          "repeat": "once",
+          "chance": 100
+        },
+        {
+          "id": "slot_asr1p9fkf0a",
+          "type": "device",
+          "deviceId": "ld_site",
+          "label": "SITE LOOP",
+          "repeat": "loop",
+          "chance": 62,
+          "max": 4
+        },
+        {
+          "id": "slot_osluzpgkf0a",
+          "type": "device",
+          "deviceId": "ld_path",
+          "label": "PATH",
+          "repeat": "once",
+          "chance": 100
+        },
+        {
+          "id": "slot_7lkz27zkf0a",
+          "type": "breath",
+          "label": "BREATH",
+          "repeat": "once",
+          "chance": 100
+        },
+        {
+          "id": "slot_0a8zhh9kf0a",
+          "type": "device",
+          "deviceId": "ld_cave",
+          "label": "CAVE",
+          "repeat": "once",
+          "chance": 100
+        },
+        {
+          "id": "slot_oovk7udkf0a",
+          "type": "breath",
+          "label": "BREATH",
+          "repeat": "once",
+          "chance": 100
+        }
+      ]
+    }
+  ],
+  "flowScenes": [
+    {
+      "id": "sc_classic",
+      "name": "Classic scene",
+      "stanzaId": "st_classic",
+      "enabled": true,
+      "chance": 100,
+      "mode": "loop"
+    }
+  ],
+  "triggers": [
+    {
+      "id": "tr_box",
+      "name": "box intrusion",
+      "enabled": true,
+      "condition": {
+        "tray": "above",
+        "term": "unknown-box"
+      },
+      "chance": 35,
+      "action": {
+        "type": "append",
+        "text": "[BOX EVENT]"
+      }
+    }
+  ],
+  "surface": {
+    "family": "taroko",
+    "traceMode": "tape",
+    "theme": "night",
+    "speedMs": 1200,
+    "retention": 28,
+    "fontSize": 21,
+    "lineHeight": 1.48,
+    "showTitle": true,
+    "showSource": true,
+    "showTick": true
+  },
+  "notes": [],
+  "meta": {
+    "createdWith": "TAROKE RIMIXER",
+    "updatedAt": "2026-07-07T14:48:17.146Z"
+  }
+}
