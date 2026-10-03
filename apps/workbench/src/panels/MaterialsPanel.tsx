@@ -6,7 +6,7 @@ import {
   addToken, removeToken, setTokenWeight, updateTokenLiteral,
   addBank, removeBank, reorderTokens, setTokenOverride,
 } from "../store/commands.js";
-import { formToken, KEEP_UNCHANGED_SENTINEL } from "@taroke/core";
+import { formToken, KEEP_UNCHANGED_SENTINEL } from "@taroko/core";
 
 // Forms available per bank role. Unknown roles fall back to ["literal"].
 const ROLE_FORMS: Record<string, { key: string; label: string }[]> = {

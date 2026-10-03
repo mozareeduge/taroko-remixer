@@ -1,6 +1,6 @@
 > **Historical record** — This file documents the completed v08 program through PR #16. It is not an executable instruction. Future work arrives only through a separately compiled Project Relay workload.
 
-# TAROKE RIMIXER v08 — Program Status
+# TAROKO REMIXER v08 — Program Status
 
 **Model:** claude-sonnet-4-6  **Effort:** medium  
 **Design authority:** `docs/v08/program/` — immutable; do not modify during implementation  
@@ -44,7 +44,7 @@ A fresh claude-sonnet-4-6 / medium session resuming this program must:
 
 WP05 merged 2026-07-16 via PR #15 (merge commit `0a2a71c`). Human Checkpoint A approved with conditions: visual appearance, mobile composition, density/hierarchy, and Surface aesthetics must be addressed before Checkpoint B.
 
-This phase delivers the full UI/UX, visual, responsive, affordance, accessibility, and sensory refinement pass against the GPT-authored workload `TAROKE_Relay_WP05_Closure_and_WP06_12_Experience_v1.0`.
+This phase delivers the full UI/UX, visual, responsive, affordance, accessibility, and sensory refinement pass against the GPT-authored workload `TAROKO_Relay_WP05_Closure_and_WP06_12_Experience_v1.0`.
 
 **Functional freeze**: The merged WP05 behavior is the feature boundary. No new product functionality.
 

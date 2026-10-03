@@ -40,7 +40,7 @@ def exists(path):
 # ─── 1. All six public docs exist ──────────────────────────────────────────
 
 PUBLIC_DOCS = [
-    'docs/WHAT_IS_TAROKE_RIMIXER.md',
+    'docs/WHAT_IS_TAROKO_REMIXER.md',
     'docs/MAKE_A_REMIX.md',
     'docs/IMPORTING_AUTHORED_PROJECTS.md',
     'docs/EXPORT_PREVIEW_AND_RECOVERY.md',

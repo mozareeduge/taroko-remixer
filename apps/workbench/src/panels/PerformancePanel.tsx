@@ -3,8 +3,8 @@ import { useAppDispatch, useAppSelector } from "../store/hooks.js";
 import { recordEvent } from "../store/runtimeSlice.js";
 import { captureTake, clearTakes, removeTake } from "../store/takesSlice.js";
 import { appendSurfaceLine, clearSurface } from "../store/surfaceSlice.js";
-import { generateEvent } from "@taroke/core";
-import type { TarokeEvent, LineEvent, RunState } from "@taroke/schema";
+import { generateEvent } from "@taroko/core";
+import type { TarokoEvent, LineEvent, RunState } from "@taroko/schema";
 
 export function PerformancePanel() {
   const dispatch = useAppDispatch();
@@ -15,11 +15,11 @@ export function PerformancePanel() {
   const surfaceLines = useAppSelector((s) => s.surface.lines);
 
   // Cue: private audition state — never written to Surface or Takes
-  const [cueEvent, setCueEvent] = useState<TarokeEvent | null>(null);
+  const [cueEvent, setCueEvent] = useState<TarokoEvent | null>(null);
   const cueQueueRef = useRef<RunState["queue"]>([...runState.queue]);
 
   // Surface: the committed event shown in UNMIX, persists across Cue clicks
-  const [surfaceEvent, setSurfaceEvent] = useState<TarokeEvent | null>(null);
+  const [surfaceEvent, setSurfaceEvent] = useState<TarokoEvent | null>(null);
   const surfaceQueueRef = useRef<RunState["queue"]>([...runState.queue]);
 
   // Build a safe queue filtered to known devices

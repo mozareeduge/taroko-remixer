@@ -1,4 +1,19 @@
-# TAROKE RIMIXER — Changelog
+# TAROKO REMIXER — Changelog
+
+## TAROKO REMIXER rename; compat kept — 2026-10-02
+
+- Repository-wide spelling rename `TAROKE` → `TAROKO` and `RIMIXER` → `REMIXER` in visible text, titles, README, docs prose, workbench UI strings, package names (`taroko-remixer`, `@taroko/*`), CHANGELOG title, CITATION.cff title, and e2e `h1` assertions (now `TAROKO REMIXER`).
+- Frozen on purpose: root `index.html`, `styles.css`, and everything under `src/` (v07.8 legacy app + 534-test suite) are byte-identical; no `.git` history rewritten.
+- Compat kept and still readable: filenames `sample_v07_reset.taroke.json`, `tests/fixtures/*.taroke.json`; the doc file `docs/WHAT_IS_TAROKE_RIMIXER.md` was renamed to `docs/WHAT_IS_TAROKO_REMIXER.md` (references updated); code strings for `.taroke.json` / `.taroke.html` extensions and the `taroke-project` script id; `localStorage` keys `taroke.rimixer.*` / `taroke.remixer.*`; the `rimixerVersion` metadata key (value semantics unchanged); repo/branch URLs.
+- Dual-read + new-key write where trivially safe: `next2/index.html` reads `taroko.remixer.v1.draft` first, then legacy `taroke.rimixer.v1.draft` / `taroke.remixer.v07.draft`, and persists both new + legacy keys; `apps/workbench` autosave reads `taroko.remixer.v08.draft` with fallback to legacy `taroke.remixer.v08.draft`, and writes/clears both.
+
+## 1.0.4 — 2026-10-02: corrected title spelling to TAROKO REMIXER; README intro
+
+- Visible title spelling corrected from "RIMIXER" to "REMIXER" in the live app (`next2/index.html`: tab title, social/meta tags, brand mark, project metadata text), README, RIGHTS and the public docs. Earlier entries below keep their original wording as history.
+- Visible version bumped from 1.0.3 to 1.0.4.
+- Unchanged on purpose so saved work keeps loading: the autosave keys `taroke.rimixer.v1.draft` and `taroke.rimixer.v1.0.1.draft`, the `rimixerVersion` field in bundled project metadata, and all file names.
+- README first screen rewritten for scholarly readers: byline, plain description in the *Taroko Gorge* lineage, citation line and rights pointer. Stale "Configure Pages" instruction removed.
+- Repository hygiene: `.claude/settings.local.json`, `.claude/memory/session-log.md` and the v08 program zip are no longer tracked (kept locally, now in `.gitignore`).
 
 ## 00 · Intakes chamber added (2026-09-01)
 
@@ -75,7 +90,7 @@ Final release verification and checkpoint for the v07 track.
 
 Commit: `bd8a78e` / merge `e145603`
 
-- Six public documentation files added: `WHAT_IS_TAROKE_RIMIXER.md`, `MAKE_A_REMIX.md`, `IMPORTING_AUTHORED_PROJECTS.md`, `EXPORT_PREVIEW_AND_RECOVERY.md`, `KNOWN_LIMITS.md`, `RELEASE_v07_7.md`.
+- Six public documentation files added: `WHAT_IS_TAROKE_RIMIXER.md` (since renamed to `WHAT_IS_TAROKO_REMIXER.md`), `MAKE_A_REMIX.md`, `IMPORTING_AUTHORED_PROJECTS.md`, `EXPORT_PREVIEW_AND_RECOVERY.md`, `KNOWN_LIMITS.md`, `RELEASE_v07_7.md`.
 - `tests/run_docs_verification.py` added: deterministic offline documentation verifier (105 checks).
 - `tests/run_live_preview_cdp.py` added: live preview CDP test suite (68 tests).
 - README rewritten as compact entry point with six-document index.

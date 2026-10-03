@@ -7,7 +7,7 @@ Borrow operations, not appearances.
 For each borrowed music concept record:
 
 1. original material problem;
-2. TAROKE problem;
+2. TAROKO problem;
 3. surviving operation;
 4. medium difference;
 5. interaction;

@@ -1,4 +1,4 @@
-# TAROKE RIMIXER
+# TAROKO REMIXER
 
 - The **live app** is v1.0.3 (`next2/index.html`), deployed to the site root and `/next2/`. It was
   promoted from `/next2/` to root on 2026-08-26.

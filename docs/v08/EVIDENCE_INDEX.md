@@ -1,4 +1,4 @@
-# TAROKE RIMIXER v08 — Evidence Index
+# TAROKO REMIXER v08 — Evidence Index
 
 **Model:** claude-sonnet-4-6  **Effort:** medium
 
@@ -38,7 +38,7 @@ Rollback: how to revert
 **Verifier:** `python3 scripts/verify_v07_baseline.py` (deterministic; parses per-suite counts; fails on any mismatch)  
 
 **Independent Review — classification (corrected 2026-07-13):**  
-The "independent reviewer" recorded in commit 8bd5acf was an intra-session Claude sub-agent spawned from the same session that authored WP00. This constitutes a same-session self-review, not an external or genuinely fresh-context review. The recovery audit (branch `claude/taroke-v08-recovery-audit-ajf7b3`, commit `d37a64b`) documents this classification. The gate condition `[x] independent reviewer approved` below reflects that the review was performed, but the reviewer classification has been downgraded to **intra-session sub-agent**.
+The "independent reviewer" recorded in commit 8bd5acf was an intra-session Claude sub-agent spawned from the same session that authored WP00. This constitutes a same-session self-review, not an external or genuinely fresh-context review. The recovery audit (branch `claude/taroko-v08-recovery-audit-ajf7b3`, commit `d37a64b`) documents this classification. The gate condition `[x] independent reviewer approved` below reflects that the review was performed, but the reviewer classification has been downgraded to **intra-session sub-agent**.
 
 A fresh-context independent review (separate session, no prior exposure to this conversation) is required before PR #4 can be marked ready for merge. See recovery audit doc §6 for the review protocol.
 

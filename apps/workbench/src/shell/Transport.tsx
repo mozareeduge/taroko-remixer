@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from "../store/hooks.js";
 import { start, stop, pause } from "../store/runtimeSlice.js";
 import { toggleInspector } from "../store/editorSlice.js";
-import { StatusLamp } from "@taroke/ui";
+import { StatusLamp } from "@taroko/ui";
 
 export function Transport() {
   const dispatch = useAppDispatch();
@@ -13,7 +13,7 @@ export function Transport() {
   return (
     <header className="tr-transport" role="banner">
       <div className="tr-transport__title">
-        <h1 className="tr-transport__app-name">TAROKE RIMIXER</h1>
+        <h1 className="tr-transport__app-name">TAROKO REMIXER</h1>
         <StatusLamp state={isDirty ? "warn" : "off"} label={isDirty ? "unsaved" : "saved"} />
         <span className="tr-transport__name">{title || "Untitled"}</span>
       </div>

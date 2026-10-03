@@ -1,4 +1,4 @@
-// @taroke/artifact-runtime — standalone HTML builder, embedded JSON, runtime bundle
+// @taroko/artifact-runtime — standalone HTML builder, embedded JSON, runtime bundle
 // No React. Implemented in WP02.
 
-export { SCHEMA_VERSION } from "@taroke/schema";
+export { SCHEMA_VERSION } from "@taroko/schema";

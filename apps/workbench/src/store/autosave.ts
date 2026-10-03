@@ -2,7 +2,8 @@ import type { Middleware } from "@reduxjs/toolkit";
 import type { RootState } from "./types.js";
 import { mutateProject, markSaved } from "./projectSlice.js";
 
-const AUTOSAVE_KEY = "taroke.remixer.v08.draft";
+const AUTOSAVE_KEY = "taroko.remixer.v08.draft";
+const LEGACY_AUTOSAVE_KEYS = ["taroke.remixer.v08.draft", "taroke.rimixer.v08.draft"];
 const V07_AUTOSAVE_KEY = "taroke.remixer.v07.draft";
 const AUTOSAVE_DEBOUNCE_MS = 1500;
 
@@ -12,6 +13,8 @@ export function saveToLocalStorage(project: RootState["project"]["present"]): vo
   try {
     const payload = JSON.stringify({ project, savedAt: new Date().toISOString() });
     localStorage.setItem(AUTOSAVE_KEY, payload);
+    // Compat: keep the previous key readable by older builds.
+    try { localStorage.setItem("taroke.remixer.v08.draft", payload); } catch { /* ignore */ }
   } catch {
     // localStorage full or unavailable — silently skip
   }
@@ -24,7 +27,15 @@ export type AutosaveDraft =
 
 export function loadFromLocalStorage(): AutosaveDraft {
   try {
-    const raw = localStorage.getItem(AUTOSAVE_KEY);
+    let raw = localStorage.getItem(AUTOSAVE_KEY);
+    if (!raw) {
+      for (const key of LEGACY_AUTOSAVE_KEYS) {
+        try {
+          raw = localStorage.getItem(key);
+          if (raw) break;
+        } catch { /* keep scanning */ }
+      }
+    }
     if (!raw) return { status: "none" };
     const parsed = JSON.parse(raw) as Record<string, unknown>;
     if (!parsed || typeof parsed !== "object" || !parsed["project"] || !parsed["savedAt"]) {
@@ -39,6 +50,9 @@ export function loadFromLocalStorage(): AutosaveDraft {
 export function clearAutosave(): void {
   try {
     localStorage.removeItem(AUTOSAVE_KEY);
+    for (const key of LEGACY_AUTOSAVE_KEYS) {
+      try { localStorage.removeItem(key); } catch { /* ignore */ }
+    }
   } catch {
     // ignore
   }

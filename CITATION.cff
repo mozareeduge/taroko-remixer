@@ -1,13 +1,13 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
-title: "TAROKE REMIXER"
-version: 1.0.3
-date-released: 2026-09-30
+title: "TAROKO REMIXER"
+version: 1.0.4
+date-released: 2026-10-02
 authors:
   - family-names: "Zare"
     given-names: "Mohammad"
     orcid: "https://orcid.org/0009-0002-9032-3614"
-repository-code: "https://github.com/mozareeduge/taroke-remixer"
+repository-code: "https://github.com/mozareeduge/taroko-remixer"
 keywords:
   - generative poetry
   - taroko gorge

@@ -2,7 +2,7 @@
 
 ## Behavior summary
 
-TAROKE RIMIXER autosaves your working project to the browser's localStorage each time you make a change. On boot, if a saved draft exists, a restore prompt appears. Restore is explicit — nothing loads automatically. Dismiss hides the prompt without clearing the draft. Clear removes it from storage. JSON export remains the portable archive authority.
+TAROKO REMIXER autosaves your working project to the browser's localStorage each time you make a change. On boot, if a saved draft exists, a restore prompt appears. Restore is explicit — nothing loads automatically. Dismiss hides the prompt without clearing the draft. Clear removes it from storage. JSON export remains the portable archive authority.
 
 ---
 

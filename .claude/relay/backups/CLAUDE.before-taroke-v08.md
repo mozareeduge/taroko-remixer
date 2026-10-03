@@ -1,4 +1,4 @@
-# TAROKE RIMIXER — Claude Code Rules
+# TAROKO REMIXER — Claude Code Rules
 
 Project type: static local-first browser app. No framework, no build step.
 

@@ -1,7 +1,7 @@
-# TAROKE RIMIXER — v07.2 Acceptance Evidence
+# TAROKO REMIXER — v07.2 Acceptance Evidence
 
 Date: 2026-07-08  
-Branch: `claude/taroke-rimixer-v07-2-acceptance-hnp61k`  
+Branch: `claude/taroko-remixer-v07-2-acceptance-hnp61k`  
 Base: `main` at commit `a9930df` (v07.1 QA hardening pass)
 
 ---
@@ -52,8 +52,8 @@ All checks performed with Chromium headless via CDP (`/opt/pw-browsers/chromium-
 
 ### 3.1 Local index.html Loads
 
-- URL: `file:///home/user/taroke-remixer/index.html`
-- Page title: `TAROKE RIMIXER v07 reset`
+- URL: `file:///home/user/taroko-remixer/index.html`
+- Page title: `TAROKO REMIXER v07 reset`
 - `#app` element present: **yes**
 - Button count on boot: **27**
 
@@ -68,7 +68,7 @@ All checks performed with Chromium headless via CDP (`/opt/pw-browsers/chromium-
 
 ### 3.3 No Boot Fallback
 
-- Check: `"Loading TAROKE"` not in `document.body.innerText` after load
+- Check: `"Loading TAROKO"` not in `document.body.innerText` after load
 - Result: **absent**
 
 **PASS** — no loading fallback text found.
@@ -123,7 +123,7 @@ Screenshots: `docs/screenshots/mobile_375_boot.png`, `mobile_390_boot.png`, `mob
 
 ### 3.10 Export Standalone HTML Opens Independently
 
-- Generated via `TarokeCore.exportProjectHtml(defaultProject())`
+- Generated via `TarokoCore.exportProjectHtml(defaultProject())`
 - File size: 21,393 bytes
 - Loaded as `file://` in fresh browser tab
 - Stage element present: **yes**

@@ -1,4 +1,4 @@
-# TAROKE RIMIXER v08 Rebuild — Claude Code Rules
+# TAROKO REMIXER v08 Rebuild — Claude Code Rules
 
 **Model:** claude-sonnet-4-6  **Effort:** medium (all sessions, all agents)
 

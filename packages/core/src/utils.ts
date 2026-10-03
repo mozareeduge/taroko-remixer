@@ -1,5 +1,5 @@
-import { TRAY_DEFS } from "@taroke/schema";
-import type { Token, TrayDef, TarokeProject } from "@taroke/schema";
+import { TRAY_DEFS } from "@taroko/schema";
+import type { Token, TrayDef, TarokoProject } from "@taroko/schema";
 
 export function uid(prefix = "id"): string {
   return prefix + "_" + Math.random().toString(36).slice(2, 9) + Date.now().toString(36).slice(-4);
@@ -32,7 +32,7 @@ export function roleForTray(tray: string): string {
   return TRAY_DEFS[tray]?.role ?? "literal";
 }
 
-export function projectTrayDefs(project: TarokeProject): Record<string, TrayDef> {
+export function projectTrayDefs(project: TarokoProject): Record<string, TrayDef> {
   const meta = project.materials?.bankMeta ?? {};
   const trays = project.materials?.trays ?? {};
   const out: Record<string, TrayDef> = {};
@@ -66,6 +66,6 @@ export function normalizeIdLabel(s: string): string {
     String(s ?? "")
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "_")
-      .replace(/^_|_$/g, "") || "taroke_rimix"
+      .replace(/^_|_$/g, "") || "taroko_rimix"
   );
 }

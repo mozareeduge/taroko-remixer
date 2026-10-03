@@ -1,4 +1,4 @@
-# TAROKE v08 — Core Parity Ledger
+# TAROKO v08 — Core Parity Ledger
 
 Tracks which v07 `core.js` behaviours have been ported to `packages/core`
 and verified at the unit level. Updated each WP that touches core logic.
@@ -36,7 +36,7 @@ by v08.
 | 5 | Line generation / weighting | `packages/core/src/generation.ts` | `generation.test.ts` | Weighted random, template interpolation |
 | 6 | Tray selection helpers | `packages/core/src/selection.ts` | (inline in generation tests) | getTrayTokens, getDevice, getStanza |
 | 7 | Export to JSON | `packages/core/src/export.ts` | `export.test.ts` | Round-trip: export → reimport → same tokens |
-| 8 | User notes field | `notes` field on TarokeProject | (schema type test) | Preserved from v07 |
+| 8 | User notes field | `notes` field on TarokoProject | (schema type test) | Preserved from v07 |
 | 9 | Irregular plurals / verb forms | `IRREGULAR_PLURALS`, `IRREGULAR_VERB3` in schema | `forms.test.ts` | Same word-lists as v07 |
 | 10 | F-end exception set | `F_END_EXCEPTIONS` in schema | `forms.test.ts` | Same set as v07 |
 

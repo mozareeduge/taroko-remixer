@@ -1,4 +1,4 @@
-# TAROKE RIMIXER v08 — Design Conflicts
+# TAROKO REMIXER v08 — Design Conflicts
 
 **Model:** claude-sonnet-4-6  **Effort:** medium
 

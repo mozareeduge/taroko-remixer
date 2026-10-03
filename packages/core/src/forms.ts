@@ -1,5 +1,5 @@
-import { IRREGULAR_PLURALS, IRREGULAR_VERB3, F_END_EXCEPTIONS } from "@taroke/schema";
-import type { Token, TarokeProject } from "@taroke/schema";
+import { IRREGULAR_PLURALS, IRREGULAR_VERB3, F_END_EXCEPTIONS } from "@taroko/schema";
+import type { Token, TarokoProject } from "@taroko/schema";
 
 export function splitHead(word: string): [string, string] {
   const s = String(word ?? "");
@@ -41,7 +41,7 @@ export function verb3Base(lower: string): string {
   return lower + "s";
 }
 
-export function applyCase(project: TarokeProject, s: string): string {
+export function applyCase(project: TarokoProject, s: string): string {
   const p = project.forms?.casePolicy ?? "preserve";
   if (p === "upper") return String(s).toUpperCase();
   if (p === "lower") return String(s).toLowerCase();
@@ -53,7 +53,7 @@ export function applyCase(project: TarokeProject, s: string): string {
 // Must NEVER appear in generated text (Cue, Surface, UNMIX, exported HTML, visible poem).
 export const KEEP_UNCHANGED_SENTINEL = "__keep__";
 
-export function formToken(project: TarokeProject, tok: Token | null | undefined, form = "literal"): string {
+export function formToken(project: TarokoProject, tok: Token | null | undefined, form = "literal"): string {
   form = String(form ?? "literal").trim();
   if (!tok) return "";
   const lit = String(tok.literal ?? "");

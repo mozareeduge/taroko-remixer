@@ -46,7 +46,7 @@ async function runAxe(page: Page, panelName: string): Promise<void> {
 
 async function goto(page: Page) {
   await page.goto(BASE);
-  await expect(page.locator("h1")).toContainText("TAROKE RIMIXER", { timeout: 10_000 });
+  await expect(page.locator("h1")).toContainText("TAROKO REMIXER", { timeout: 10_000 });
 }
 
 const NAV_LABELS_A11Y: Record<string, string> = {

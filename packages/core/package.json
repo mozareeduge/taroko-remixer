@@ -1,5 +1,5 @@
 {
-  "name": "@taroke/core",
+  "name": "@taroko/core",
   "version": "0.8.0",
   "private": true,
   "type": "module",
@@ -13,12 +13,12 @@
     "test:watch": "vitest"
   },
   "devDependencies": {
-    "@taroke/schema": "*",
+    "@taroko/schema": "*",
     "typescript": "^5.6.2",
     "vitest": "^2.1.2",
     "fast-check": "^3.22.0"
   },
   "peerDependencies": {
-    "@taroke/schema": "*"
+    "@taroko/schema": "*"
   }
 }

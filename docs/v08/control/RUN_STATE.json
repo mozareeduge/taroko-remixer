@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0.0",
   "terminal_status": "closed",
-  "canonical_repository": "mozareeduge/taroke-remixer",
+  "canonical_repository": "mozareeduge/taroko-remixer",
   "canonical_branch": "claude/taroke-remixer-reconcile-tydcn5",
   "canonical_pr": 16,
   "base_branch": "main",
-  "workload_package": "TAROKE_Relay_WP05_Closure_and_WP06_12_Experience_v1.0",
+  "workload_package": "TAROKO_Relay_WP05_Closure_and_WP06_12_Experience_v1.0",
   "wp05_closure": {
     "merge_verified": true,
     "merge_commit": "0a2a71c8e8cce1f3afedbbd0eaf9f49b295cf004",

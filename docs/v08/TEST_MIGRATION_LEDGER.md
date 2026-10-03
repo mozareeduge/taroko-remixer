@@ -1,4 +1,4 @@
-# TAROKE RIMIXER v08 — Test Migration Ledger
+# TAROKO REMIXER v08 — Test Migration Ledger
 
 **Model:** claude-sonnet-4-6  **Effort:** medium  
 **Baseline:** 534 passed, 0 failed (16 suites, tag: v07.8-release-checkpoint)  

@@ -43,7 +43,7 @@ def main():
             return 0
     state_path, features_path = Path(args.state), Path(args.features)
     if not state_path.is_file() or not features_path.is_file():
-        msg = "TAROKE completion state is missing. Continue T00 and create the durable state files."
+        msg = "TAROKO completion state is missing. Continue T00 and create the durable state files."
         print(msg, file=sys.stderr)
         return 2 if args.hook else 1
     state, features = load(state_path), load(features_path)
@@ -52,7 +52,7 @@ def main():
         return 0
     errors = evaluate(state, features)
     if errors:
-        print("TAROKE WP05 completion gate is not satisfied:", file=sys.stderr)
+        print("TAROKO WP05 completion gate is not satisfied:", file=sys.stderr)
         for e in errors:
             print("- " + e, file=sys.stderr)
         print("Active task: " + str(state.get("active_task")), file=sys.stderr)

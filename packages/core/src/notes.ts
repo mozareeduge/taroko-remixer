@@ -1,9 +1,9 @@
-import type { TarokeProject, ProjectNote, TarokeEvent } from "@taroke/schema";
+import type { TarokoProject, ProjectNote, TarokoEvent } from "@taroko/schema";
 import { uid, clone } from "./utils.js";
 
 export function addOrUpdateNote(
-  project: TarokeProject,
-  event: TarokeEvent,
+  project: TarokoProject,
+  event: TarokoEvent,
   status = "repair",
   text = "",
 ): ProjectNote {

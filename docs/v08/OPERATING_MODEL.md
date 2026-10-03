@@ -1,6 +1,6 @@
-# TAROKE Operating Model
+# TAROKO Operating Model
 
-This document describes the three separated modes of TAROKE development.
+This document describes the three separated modes of TAROKO development.
 It is a standing reference; it does not authorize any specific work.
 
 ## Mode 1 — GPT/Human Specification

@@ -1,13 +1,13 @@
-# QA Hardening Report — TAROKE RIMIXER v07.1
+# QA Hardening Report — TAROKO REMIXER v07.1
 
 Date: 2026-07-08  
-Branch: `claude/taroko-rimixer-qa-hardening-o3z93c`
+Branch: `claude/taroko-remixer-qa-hardening-o3z93c`
 
 ---
 
 ## Summary
 
-Deep QA pass on TAROKE RIMIXER v07 reset. Baseline was 31 passing tests across 3 browser CDP suites + 1 Node core suite. All tests pass.
+Deep QA pass on TAROKO REMIXER v07 reset. Baseline was 31 passing tests across 3 browser CDP suites + 1 Node core suite. All tests pass.
 
 **Final test count: 133 passed, 0 failed** (up from 31).
 

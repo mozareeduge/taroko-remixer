@@ -12,7 +12,7 @@ import surfaceReducer from "../../store/surfaceSlice.js";
 import { createUndoMiddleware } from "../../store/undoMiddleware.js";
 import { autosaveMiddleware } from "../../store/autosave.js";
 import { setProjectTitle, addToken, removeToken } from "../../store/commands.js";
-import { defaultProject } from "@taroke/core";
+import { defaultProject } from "@taroko/core";
 
 // enablePatches must be called before any produceWithPatches / applyPatches usage
 enablePatches();

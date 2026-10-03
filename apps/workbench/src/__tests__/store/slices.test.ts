@@ -8,7 +8,7 @@ import historyReducer, { pushEntry, popForUndo, clearHistory } from "../../store
 import importReceiptReducer, { showReceipt, dismissReceipt, clearReceipt } from "../../store/importReceiptSlice.js";
 import surfaceReducer, { appendSurfaceLine, clearSurface, setRetention } from "../../store/surfaceSlice.js";
 import takesReducer, { captureTake, clearTakes, removeTake } from "../../store/takesSlice.js";
-import { defaultProject } from "@taroke/core";
+import { defaultProject } from "@taroko/core";
 
 // ── projectSlice ────────────────────────────────────────────────────────────────
 

@@ -2,7 +2,7 @@
 
 ## Mission
 
-Rebuild the TAROKE RIMIXER editor as a stable, legible, responsive poetic signal workstation while preserving the tested generator, migration, import/export, standalone artifact, and authored-project fidelity of v07.8.
+Rebuild the TAROKO REMIXER editor as a stable, legible, responsive poetic signal workstation while preserving the tested generator, migration, import/export, standalone artifact, and authored-project fidelity of v07.8.
 
 The rebuild must solve:
 
@@ -21,7 +21,7 @@ The rebuild must solve:
 
 ## Product thesis
 
-TAROKE is a visible-constraint authoring instrument. The user configures a procedural poem rather than asking a hidden system to write one.
+TAROKO is a visible-constraint authoring instrument. The user configures a procedural poem rather than asking a hidden system to write one.
 
 Visible path:
 

@@ -13,7 +13,7 @@ const BASE = "/next/";
 
 async function goto(page: Page) {
   await page.goto(BASE);
-  await expect(page.locator("h1")).toContainText("TAROKE RIMIXER", { timeout: 10_000 });
+  await expect(page.locator("h1")).toContainText("TAROKO REMIXER", { timeout: 10_000 });
 }
 
 const NAV_LABELS: Record<string, string> = {
@@ -360,10 +360,10 @@ test("16 — Inspector panel can be opened via button", async ({ page }) => {
 
 test("17 — v08 app is reachable at /next/ via direct navigation", async ({ page }) => {
   await page.goto("/next/");
-  await expect(page.locator("h1")).toContainText("TAROKE RIMIXER", { timeout: 10_000 });
+  await expect(page.locator("h1")).toContainText("TAROKO REMIXER", { timeout: 10_000 });
   // Reload — app must survive refresh
   await page.reload();
-  await expect(page.locator("h1")).toContainText("TAROKE RIMIXER", { timeout: 10_000 });
+  await expect(page.locator("h1")).toContainText("TAROKO REMIXER", { timeout: 10_000 });
 });
 
 // ── 18. Accessibility: structural checks ──────────────────────────────────────
@@ -778,7 +778,7 @@ test("35 — Archive: Export HTML triggers a download with standalone taroke HTM
 
   // Standalone artifact HTML must have essential markers
   expect(content, "Expected DOCTYPE").toContain("<!DOCTYPE html>");
-  expect(content, "Expected TAROKE reference").toMatch(/taroke/i);
+  expect(content, "Expected TAROKO reference").toMatch(/tarok[eo]/i);
   // Embedded project data (JSON blob) must be present
   expect(content, "Expected embedded schemaVersion").toContain("schemaVersion");
 });
@@ -788,9 +788,9 @@ test("35 — Archive: Export HTML triggers a download with standalone taroke HTM
 test("36 — DraftRecoveryBanner: no banner rendered when localStorage has no draft", async ({ page }) => {
   await goto(page);
   // Clear any pre-existing draft
-  await page.evaluate(() => localStorage.removeItem("taroke.remixer.v08.draft"));
+  await page.evaluate(() => { localStorage.removeItem("taroko.remixer.v08.draft"); localStorage.removeItem("taroke.remixer.v08.draft"); });
   await page.reload();
-  await expect(page.locator("h1")).toContainText("TAROKE RIMIXER", { timeout: 10_000 });
+  await expect(page.locator("h1")).toContainText("TAROKO REMIXER", { timeout: 10_000 });
 
   // Banner must not exist
   const banner = page.locator("[class*='tr-draft-banner']");
@@ -803,10 +803,10 @@ test("37 — DraftRecoveryBanner: banner appears after localStorage draft is inj
   await goto(page);
   // Inject a valid draft then reload
   await page.evaluate((draft) => {
-    localStorage.setItem("taroke.remixer.v08.draft", draft);
+    localStorage.setItem("taroko.remixer.v08.draft", draft);
   }, JSON.stringify({ project: JSON.parse(MINIMAL_PROJECT), savedAt: new Date().toISOString() }));
   await page.reload();
-  await expect(page.locator("h1")).toContainText("TAROKE RIMIXER", { timeout: 10_000 });
+  await expect(page.locator("h1")).toContainText("TAROKO REMIXER", { timeout: 10_000 });
 
   // Banner must appear
   const banner = page.locator("[class*='tr-draft-banner']").first();
@@ -819,10 +819,10 @@ test("37 — DraftRecoveryBanner: banner appears after localStorage draft is inj
 test("38 — DraftRecoveryBanner: Restore draft loads the saved project", async ({ page }) => {
   await goto(page);
   await page.evaluate((draft) => {
-    localStorage.setItem("taroke.remixer.v08.draft", draft);
+    localStorage.setItem("taroko.remixer.v08.draft", draft);
   }, JSON.stringify({ project: JSON.parse(MINIMAL_PROJECT), savedAt: new Date().toISOString() }));
   await page.reload();
-  await expect(page.locator("h1")).toContainText("TAROKE RIMIXER", { timeout: 10_000 });
+  await expect(page.locator("h1")).toContainText("TAROKO REMIXER", { timeout: 10_000 });
 
   // Click Restore draft
   const restoreBtn = page.getByRole("button", { name: /restore draft/i });
@@ -844,10 +844,10 @@ test("38 — DraftRecoveryBanner: Restore draft loads the saved project", async 
 test("39 — DraftRecoveryBanner: Dismiss hides banner and keeps current project", async ({ page }) => {
   await goto(page);
   await page.evaluate((draft) => {
-    localStorage.setItem("taroke.remixer.v08.draft", draft);
+    localStorage.setItem("taroko.remixer.v08.draft", draft);
   }, JSON.stringify({ project: JSON.parse(MINIMAL_PROJECT), savedAt: new Date().toISOString() }));
   await page.reload();
-  await expect(page.locator("h1")).toContainText("TAROKE RIMIXER", { timeout: 10_000 });
+  await expect(page.locator("h1")).toContainText("TAROKO REMIXER", { timeout: 10_000 });
 
   const dismissBtn = page.getByRole("button", { name: /^dismiss$/i });
   await expect(dismissBtn).toBeVisible({ timeout: 3000 });
@@ -872,10 +872,10 @@ test("39 — DraftRecoveryBanner: Dismiss hides banner and keeps current project
 test("40 — DraftRecoveryBanner: Clear draft removes localStorage entry and hides banner", async ({ page }) => {
   await goto(page);
   await page.evaluate((draft) => {
-    localStorage.setItem("taroke.remixer.v08.draft", draft);
+    localStorage.setItem("taroko.remixer.v08.draft", draft);
   }, JSON.stringify({ project: JSON.parse(MINIMAL_PROJECT), savedAt: new Date().toISOString() }));
   await page.reload();
-  await expect(page.locator("h1")).toContainText("TAROKE RIMIXER", { timeout: 10_000 });
+  await expect(page.locator("h1")).toContainText("TAROKO REMIXER", { timeout: 10_000 });
 
   const clearBtn = page.getByRole("button", { name: /clear draft/i });
   await expect(clearBtn).toBeVisible({ timeout: 3000 });
@@ -887,7 +887,7 @@ test("40 — DraftRecoveryBanner: Clear draft removes localStorage entry and hid
   expect(await banner.count(), "Banner must disappear after Clear").toBe(0);
 
   // localStorage must no longer hold the draft
-  const remaining = await page.evaluate(() => localStorage.getItem("taroke.remixer.v08.draft"));
+  const remaining = await page.evaluate(() => localStorage.getItem("taroko.remixer.v08.draft"));
   expect(remaining, "localStorage must be cleared after Clear").toBeNull();
 });
 
@@ -896,10 +896,10 @@ test("40 — DraftRecoveryBanner: Clear draft removes localStorage entry and hid
 test("41 — DraftRecoveryBanner: corrupt localStorage JSON shows error banner", async ({ page }) => {
   await goto(page);
   await page.evaluate(() => {
-    localStorage.setItem("taroke.remixer.v08.draft", "{ this is not valid json }");
+    localStorage.setItem("taroko.remixer.v08.draft", "{ this is not valid json }");
   });
   await page.reload();
-  await expect(page.locator("h1")).toContainText("TAROKE RIMIXER", { timeout: 10_000 });
+  await expect(page.locator("h1")).toContainText("TAROKO REMIXER", { timeout: 10_000 });
 
   // Error banner variant must appear
   const banner = page.locator("[class*='tr-draft-banner']").first();

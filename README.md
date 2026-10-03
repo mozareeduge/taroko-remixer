@@ -1,14 +1,24 @@
-# TAROKO RIMIXER
+# TAROKO REMIXER
 
-TAROKO RIMIXER is a visible-constraint generative-poetry workbench that runs entirely in your browser. It is a local-first static application — no server, no account, no build step. Open `index.html` locally or publish the repository root with GitHub Pages. The app edits a project JSON describing a poem-machine and exports a standalone playable HTML artifact.
+by Mohammad Zare (Mozare) · version 1.0.4 · [Open the live app](https://taroke-remixer.theblackbirdfield.com/)
 
-**Live URL:** `https://mozareeduge.github.io/taroke-remixer/`
+TAROKO REMIXER is a browser-native workbench for composing generative poems in the lineage of Nick Montfort's *Taroko Gorge* (2009). Lexical banks, rules, timing and trace become visible authoring decisions: every bank of word-material, route template, trigger condition and surface setting is authored and can be inspected, and the system draws only from what the author supplies. A finished machine exports as a standalone HTML work that runs the same poem without the editor. See [What Is TAROKO REMIXER?](docs/WHAT_IS_TAROKO_REMIXER.md) for the concept and scope.
 
-**Rights and reuse:** See [RIGHTS.md](RIGHTS.md). The citation record does not grant a license to the code or to works in the Taroko Gorge lineage.
+**How to cite:** Zare, M. (2026). *TAROKO REMIXER* (Version 1.0.4) [Software]. https://github.com/mozareeduge/taroko-remixer
 
-**Current pass:** v1.0.3 (promoted from `/next2/` review candidate on 2026-08-26).
+**Rights and reuse:** see [RIGHTS.md](RIGHTS.md). The citation record does not grant a license to the code or to works in the *Taroko Gorge* lineage.
 
-**Legacy v07.8 release checkpoint:** archived at `https://mozareeduge.github.io/taroke-remixer/archive/v07.8/` (534 passed, 0 failed, unmodified — its CI suite still runs on every push).
+---
+
+## About this repository
+
+It is a local-first static application: no server, no account, no build step. The app edits a project JSON describing a poem-machine and exports a standalone playable HTML artifact.
+
+**Live URL:** `https://taroke-remixer.theblackbirdfield.com/`
+
+**Current version:** v1.0.4 (title spelling corrected to TAROKO REMIXER; v1.0.3 was promoted from `/next2/` on 2026-08-26).
+
+**Legacy v07.8 release checkpoint:** archived at `https://taroke-remixer.theblackbirdfield.com/archive/v07.8/` (534 passed, 0 failed, unmodified — its CI suite still runs on every push).
 
 ---
 
@@ -33,11 +43,8 @@ TAROKO RIMIXER is a visible-constraint generative-poetry workbench that runs ent
 ## Quick start
 
 ```bash
-# Open locally:
-open index.html
-
-# Or deploy via GitHub Pages:
-# Configure Pages → main branch root in repository Settings.
+# Open the live app locally (v1.0.4):
+open next2/index.html
 ```
 
 ---
@@ -57,7 +64,7 @@ open index.html
 
 | Document | Contents |
 |----------|----------|
-| [What Is TAROKE RIMIXER?](docs/WHAT_IS_TAROKE_RIMIXER.md) | Concept, layers, scope, and what it is not. |
+| [What Is TAROKO REMIXER?](docs/WHAT_IS_TAROKO_REMIXER.md) | Concept, layers, scope, and what it is not. |
 | [Make a Remix](docs/MAKE_A_REMIX.md) | Chamber-by-chamber practical usage guide. |
 | [Importing Authored Projects](docs/IMPORTING_AUTHORED_PROJECTS.md) | Import contract, fidelity rules, supported formats, Grave v3.2 acceptance. |
 | [Export, Preview, and Recovery](docs/EXPORT_PREVIEW_AND_RECOVERY.md) | JSON, standalone HTML, autosave, live preview, sandboxing. |
@@ -93,5 +100,5 @@ Static. No framework, no bundler, no build step.
 `index.html`, `styles.css`, and `src/` at the repository root are the **v07.8 legacy app** —
 unmodified, still covered by its 534-test CI suite, but deployed only at `/archive/v07.8/`.
 
-The **live app** (v1.0.3) is `next2/index.html`, a single self-contained file, deployed to both
+The **live app** (v1.0.4) is `next2/index.html`, a single self-contained file, deployed to both
 the site root and `/next2/`.

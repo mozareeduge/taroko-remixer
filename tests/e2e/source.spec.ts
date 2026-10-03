@@ -11,7 +11,7 @@ const BASE = "/next/";
 
 async function goto(page: Parameters<typeof test>[1] extends (p: infer P, ...a: unknown[]) => unknown ? P : never) {
   await page.goto(BASE);
-  await expect(page.locator("h1")).toContainText("TAROKE RIMIXER", { timeout: 10_000 });
+  await expect(page.locator("h1")).toContainText("TAROKO REMIXER", { timeout: 10_000 });
 }
 
 // ── 1. Desktop: Source nav item is present in MATERIAL group ──────────────────

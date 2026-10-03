@@ -1,6 +1,6 @@
 # Rights and reuse
 
-TAROKE RIMIXER is a work by Mohammad Zare. This repository does not presently grant a general software or content license. Public access to the source, a citation record, or a downloadable generated work is not itself permission to reuse or redistribute original code, interface, prose, or bundled research materials.
+TAROKO REMIXER is a work by Mohammad Zare. This repository does not presently grant a general software or content license. Public access to the source, a citation record, or a downloadable generated work is not itself permission to reuse or redistribute original code, interface, prose, or bundled research materials.
 
 Works in the *Taroko Gorge* remix lineage, quoted material, imported projects, and third-party assets remain subject to their respective authors’ and rightsholders’ terms. A citation identifies the work; it does not transfer those rights.
 

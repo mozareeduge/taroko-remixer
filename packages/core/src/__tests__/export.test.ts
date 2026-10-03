@@ -243,9 +243,9 @@ describe("downloadName", () => {
     expect(downloadName(project, ".taroke.json")).toBe("my_cool_project.taroke.json");
   });
 
-  it("falls back to taroke_rimix for empty title", () => {
+  it("falls back to taroko_rimix for empty title", () => {
     const project = defaultProject();
     project.project.title = "";
-    expect(downloadName(project, ".html")).toBe("taroke_rimix.html");
+    expect(downloadName(project, ".html")).toBe("taroko_rimix.html");
   });
 });
