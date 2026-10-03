@@ -10,11 +10,15 @@ concurrency:
   group: ci-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   # ── v07 baseline ──────────────────────────────────────────────
   v07-baseline:
     name: v07 baseline (534 tests)
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.CI_RUNNER || 'ubuntu-latest' }}
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
@@ -45,7 +49,7 @@ jobs:
   # ── v08 typecheck ─────────────────────────────────────────────
   v08-typecheck:
     name: v08 TypeScript
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.CI_RUNNER || 'ubuntu-latest' }}
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
@@ -61,7 +65,7 @@ jobs:
   # ── v08 unit tests ────────────────────────────────────────────
   v08-unit:
     name: v08 unit tests (Vitest)
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.CI_RUNNER || 'ubuntu-latest' }}
     timeout-minutes: 15
     needs: v08-typecheck
     steps:
@@ -78,7 +82,7 @@ jobs:
   # ── v08 build ─────────────────────────────────────────────────
   v08-build-next:
     name: v08 build /next/
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.CI_RUNNER || 'ubuntu-latest' }}
     timeout-minutes: 15
     needs: v08-unit
     steps:
@@ -101,7 +105,7 @@ jobs:
   # ── v08 E2E (Chromium) ────────────────────────────────────────
   v08-e2e-chromium:
     name: v08 E2E Chromium
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.CI_RUNNER || 'ubuntu-latest' }}
     timeout-minutes: 35
     needs: v08-build-next
     steps:
@@ -136,7 +140,7 @@ jobs:
   # ── v08 E2E (Firefox) ─────────────────────────────────────────
   v08-e2e-firefox:
     name: v08 E2E Firefox
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.CI_RUNNER || 'ubuntu-latest' }}
     timeout-minutes: 35
     needs: v08-build-next
     steps:
@@ -171,7 +175,7 @@ jobs:
   # ── v08 E2E (WebKit) ──────────────────────────────────────────
   v08-e2e-webkit:
     name: v08 E2E WebKit
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.CI_RUNNER || 'ubuntu-latest' }}
     timeout-minutes: 35
     needs: v08-build-next
     steps:
@@ -206,7 +210,7 @@ jobs:
   # ── v08 E2E (Mobile) ──────────────────────────────────────────
   v08-e2e-mobile:
     name: v08 E2E Mobile (Chromium portrait + WebKit mobile)
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.CI_RUNNER || 'ubuntu-latest' }}
     timeout-minutes: 35
     needs: v08-build-next
     steps:
