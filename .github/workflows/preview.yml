@@ -17,13 +17,11 @@ name: Deploy Preview
 # CI suite (scripts/verify_v07_baseline.py) still runs against those files in place — but it
 # is now deployed only at /archive/v07.8/, not at the live root.
 
+# Manual only since 2026-10-03: Pages serves the `gh-pages` branch
+# (build_type legacy), so this Actions-based deploy cannot publish and failed
+# on every push. Kept, not deleted: to re-enable, restore the push trigger and
+# switch Settings -> Pages back to "GitHub Actions".
 on:
-  push:
-    branches:
-      - main
-      - "claude/taroke-remixer-reconcile-tydcn5"
-      - "claude/v08-wp06-12-experience-system"
-      - "claude/taroke-remixer-migration-6z1xma"
   workflow_dispatch:
 
 permissions:

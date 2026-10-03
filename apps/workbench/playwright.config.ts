@@ -34,7 +34,9 @@ export default defineConfig({
   retries: 0,
   reporter: [["html", { outputFolder: "../../playwright-report" }], ["line"]],
   use: {
-    baseURL: "http://localhost:4173",
+    // 127.0.0.1, not localhost: some Windows runners refuse IPv6 loopback (::1)
+    // connections (EACCES) while vite binds localhost to ::1.
+    baseURL: "http://127.0.0.1:4173",
     trace: "retain-on-failure",
     screenshot: "only-on-failure",
     video: "off",
@@ -91,9 +93,9 @@ export default defineConfig({
   ],
   webServer: {
     // Run from apps/workbench — vite preview serves outDir (../../next) at base /next/
-    command: "npm run preview",
+    command: "npm run preview -- --host 127.0.0.1 --port 4173 --strictPort",
     // Wait for the v08 app to respond before running tests
-    url: "http://localhost:4173/next/",
+    url: "http://127.0.0.1:4173/next/",
     timeout: 60_000,
     reuseExistingServer: false,
   },

@@ -5,7 +5,7 @@ trigger roundtrip, note workflows, form overrides, custom bank delete.
 """
 import json, subprocess, time, requests, websocket, shutil, pathlib, sys, tempfile, os
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from browser_runtime import resolve_chromium
+from browser_runtime import resolve_chromium, page_ws_url
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 CHROME = resolve_chromium()
@@ -28,7 +28,7 @@ def boot_chrome(port, prof):
         try: requests.get(f'http://127.0.0.1:{port}/json/version', timeout=.2); break
         except Exception: time.sleep(.2)
     else: raise RuntimeError(f'Chrome DevTools on port {port} did not start')
-    wsurl = requests.get(f'http://127.0.0.1:{port}/json').json()[0]['webSocketDebuggerUrl']
+    wsurl = page_ws_url(port)
     ws = websocket.create_connection(wsurl, timeout=10)
     cid = 0
     def send(method, params=None):
@@ -222,7 +222,7 @@ try:
     assert artifact_html, 'exportProjectHtml returned nothing'
 
     # Write artifact to temp file, load as data: URL
-    artifact_path = pathlib.Path('/tmp/taroke_qa_artifact.html')
+    artifact_path = pathlib.Path(tempfile.gettempdir()) / 'taroke_qa_artifact.html'
     artifact_path.write_text(artifact_html, encoding='utf-8')
 
     # Verify artifact content WITHOUT running it in a browser tab
@@ -259,7 +259,7 @@ finally:
     try: proc2.kill()
     except Exception: pass
     try:
-        import os; os.unlink('/tmp/taroke_qa_artifact.html')
+        os.unlink(os.path.join(tempfile.gettempdir(), 'taroke_qa_artifact.html'))
     except Exception: pass
 
 # ─── Session 3: Mobile viewport layout ───────────────────────────────────────

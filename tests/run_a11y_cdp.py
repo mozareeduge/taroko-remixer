@@ -6,7 +6,7 @@ no horizontal overflow at 375/430px, customSelect aria-labelledby.
 """
 import json, subprocess, time, requests, websocket, shutil, pathlib, sys, os
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from browser_runtime import resolve_chromium
+from browser_runtime import resolve_chromium, page_ws_url
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 CHROME = resolve_chromium()
@@ -29,7 +29,7 @@ def boot_chrome(port, prof):
         try: requests.get(f'http://127.0.0.1:{port}/json/version', timeout=.2); break
         except Exception: time.sleep(.2)
     else: raise RuntimeError(f'Chrome DevTools on port {port} did not start')
-    wsurl = requests.get(f'http://127.0.0.1:{port}/json').json()[0]['webSocketDebuggerUrl']
+    wsurl = page_ws_url(port)
     ws = websocket.create_connection(wsurl, timeout=10)
     cid = 0
     def send(method, params=None):

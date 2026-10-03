@@ -6,7 +6,7 @@
 #        H. Iframe stability (v07.8)
 import json, subprocess, time, requests, websocket, shutil, pathlib, sys, os, re
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from browser_runtime import resolve_chromium
+from browser_runtime import resolve_chromium, page_ws_url
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 FIXTURE_PATH = ROOT / 'tests' / 'fixtures' / 'exact_custom_banks_project.taroke.json'
@@ -46,7 +46,7 @@ try:
         except Exception: time.sleep(.2)
     else: raise RuntimeError('Chrome DevTools did not start')
 
-    wsurl = requests.get('http://127.0.0.1:9260/json').json()[0]['webSocketDebuggerUrl']
+    wsurl = page_ws_url(9260)
     ws = websocket.create_connection(wsurl, timeout=10)
     cid = 0
 

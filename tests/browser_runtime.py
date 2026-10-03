@@ -103,6 +103,28 @@ def alloc_port(base: int = 9200) -> int:
     raise RuntimeError(f"No free port found in range {base}–{base + 200}")
 
 
+def page_ws_url(port: int, timeout: float = 30) -> str:
+    """
+    Return the DevTools WebSocket URL of Chrome's first page target.
+
+    /json/version can answer before Chrome has created the initial
+    about:blank tab, so /json may briefly be an empty list. Poll until a
+    page target exists instead of indexing [0] immediately.
+    """
+    deadline = time.time() + timeout
+    while True:
+        try:
+            targets = requests.get(f"http://127.0.0.1:{port}/json", timeout=2).json()
+            pages = [t for t in targets if t.get("type") == "page" and t.get("webSocketDebuggerUrl")]
+            if pages:
+                return pages[0]["webSocketDebuggerUrl"]
+        except Exception:
+            pass
+        if time.time() > deadline:
+            raise RuntimeError(f"Chrome on port {port} exposed no page target within {timeout}s")
+        time.sleep(0.2)
+
+
 def boot_chrome(port: int, prof: str, chromium: str | None = None, timeout: int = 60):
     """
     Start a headless Chrome process on *port* with a fresh profile at *prof*.
@@ -146,7 +168,7 @@ def boot_chrome(port: int, prof: str, chromium: str | None = None, timeout: int 
         proc.wait(timeout=5)
         raise RuntimeError(f"Chrome DevTools on port {port} did not start within {timeout}s")
 
-    ws_url = requests.get(f"http://127.0.0.1:{port}/json").json()[0]["webSocketDebuggerUrl"]
+    ws_url = page_ws_url(port)
     ws = websocket.create_connection(ws_url, timeout=10)
     _cid = [0]
 
