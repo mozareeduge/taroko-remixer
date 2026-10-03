@@ -1,6 +1,6 @@
 # What Is TAROKO REMIXER?
 
-Mohammad Zare (Mozare) · TAROKO REMIXER v1.0.4 · https://taroke-remixer.theblackbirdfield.com/
+Mohammad Zare (Mozare) · TAROKO REMIXER v1.0.4 · https://taroko-remixer.theblackbirdfield.com/
 
 ---
 
@@ -22,7 +22,7 @@ The same panel also holds a caution. Montfort said there: "I spent literally yea
 
 ## What the app is
 
-A static, local-first browser application in one file (`next2/index.html`). It runs at https://taroke-remixer.theblackbirdfield.com/ or from a local copy; there is no server, no account and no build step.
+A static, local-first browser application in one file (`next2/index.html`). It runs at https://taroko-remixer.theblackbirdfield.com/ or from a local copy; there is no server, no account and no build step.
 
 The navigator holds nine chambers:
 

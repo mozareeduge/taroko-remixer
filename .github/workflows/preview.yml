@@ -6,11 +6,11 @@ name: Deploy Preview
 #
 # REQUIRES: GitHub Pages enabled (Settings → Pages → Source: GitHub Actions)
 #
-# Public URL: https://taroke-remixer.theblackbirdfield.com/
-# v1.0.3 (root):        https://taroke-remixer.theblackbirdfield.com/
-# v08 (/next/):         https://taroke-remixer.theblackbirdfield.com/next/
-# v1.0.3 (/next2/):     https://taroke-remixer.theblackbirdfield.com/next2/ (mirror of root)
-# v07.8 (/archive/v07.8/): https://taroke-remixer.theblackbirdfield.com/archive/v07.8/
+# Public URL: https://taroko-remixer.theblackbirdfield.com/
+# v1.0.3 (root):        https://taroko-remixer.theblackbirdfield.com/
+# v08 (/next/):         https://taroko-remixer.theblackbirdfield.com/next/
+# v1.0.3 (/next2/):     https://taroko-remixer.theblackbirdfield.com/next2/ (mirror of root)
+# v07.8 (/archive/v07.8/): https://taroko-remixer.theblackbirdfield.com/archive/v07.8/
 #
 # v1.0.3 was promoted from /next2/ to root on 2026-08-26 (approved five design repairs).
 # v07.8 is preserved unmodified in the repo root (index.html/styles.css/src/) — its 534-test
@@ -62,7 +62,7 @@ jobs:
         run: npm run build --workspace=apps/workbench
         env:
           # Absolute base matching the deployed path on the custom domain
-          # (taroke-remixer.theblackbirdfield.com serves the Pages artifact at its root).
+          # (taroko-remixer.theblackbirdfield.com serves the Pages artifact at its root).
           VITE_BASE: /next/
 
       - name: Assemble Pages output

@@ -1,10 +1,10 @@
 # TAROKO REMIXER
 
-by Mohammad Zare (Mozare) · version 1.0.4 (2026-10-02) · [Open the live app](https://taroke-remixer.theblackbirdfield.com/)
+by Mohammad Zare (Mozare) · version 1.0.4 (2026-10-02) · [Open the live app](https://taroko-remixer.theblackbirdfield.com/)
 
 Nick Montfort's *Taroko Gorge* (2009) is a short JavaScript program that writes a nature poem without end. Its word lists sit in plain view in the page source, and writers soon copied the page, changed the words, and published their own versions. At the Electronic Literature Organization's 2012 panel on these remixes (*Taroko Gorge Remixed: Repetition and Difference in Machine Texts*, West Virginia University, 21 June 2012; transcript of the session audio archived by Christopher T. Funkhouser), Sonny Rae Tempest, speaking "from a non-academic place" and without knowing JavaScript, described using the poem "as a template": "The code is simple enough that I can show my metalhead friends the input and the output, and they can go and do this themselves." TAROKO REMIXER follows that aspect of *Taroko Gorge* toward no-code creation. The decisions a remixer once made inside the source file (which words, in which banks, with what weights, through which line patterns, in what order, under which exceptions) become configurable modules in the browser, wired into one another, so that a person can design a working poem-machine, run it, and export it as a standalone work without writing a line of code. The app is a platform in the sense of Montfort and Bogost's platform studies, a computing system whose design shapes the works made on it: it admits one family of works, procedural e-poems built from banks, routes, stanzas and rules, and an open-ended number of them, each of them a remix. The full statement and its sources are in [What Is TAROKO REMIXER?](docs/WHAT_IS_TAROKO_REMIXER.md).
 
-**How to cite:** Zare, Mohammad (Mozare). *TAROKO REMIXER*. Version 1.0.4, 2026. https://taroke-remixer.theblackbirdfield.com/ (source: https://github.com/mozareeduge/taroko-remixer)
+**How to cite:** Zare, Mohammad (Mozare). *TAROKO REMIXER*. Version 1.0.4, 2026. https://taroko-remixer.theblackbirdfield.com/ (source: https://github.com/mozareeduge/taroko-remixer)
 
 **Rights and reuse:** see [RIGHTS.md](RIGHTS.md). The citation record does not grant a license to the code or to works in the *Taroko Gorge* lineage.
 
@@ -41,7 +41,7 @@ The `.taroke.*` file extensions and `taroke.*` storage keys keep their earlier s
 
 ## Quick start
 
-Open the live app: https://taroke-remixer.theblackbirdfield.com/
+Open the live app: https://taroko-remixer.theblackbirdfield.com/
 
 Or run it locally by opening `next2/index.html` in a modern browser.
 
