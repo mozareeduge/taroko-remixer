@@ -1,5 +1,7 @@
 # Test report — v07.8 release checkpoint
 
+> Historical: this report covers the frozen v07.8 legacy app (root `index.html`, `styles.css`, `src/`), not the live v1.0.4 app.
+
 Command:
 
 ```bash

@@ -6,10 +6,14 @@ date-released: 2026-10-02
 authors:
   - family-names: "Zare"
     given-names: "Mohammad"
+    alias: "Mozare"
     orcid: "https://orcid.org/0009-0002-9032-3614"
 repository-code: "https://github.com/mozareeduge/taroko-remixer"
+url: "https://taroke-remixer.theblackbirdfield.com/"
 keywords:
   - generative poetry
   - taroko gorge
   - authoring tool
   - browser-based
+  - no-code
+  - electronic literature

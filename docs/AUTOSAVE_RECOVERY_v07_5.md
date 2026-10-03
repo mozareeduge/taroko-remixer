@@ -1,5 +1,7 @@
 # Autosave/Recovery — v07.5
 
+> **Historical document.** This page describes the v07.x legacy editor (frozen at v07.8, archived at https://taroke-remixer.theblackbirdfield.com/archive/v07.8/), not the current app. Chamber names, file behaviour and URLs here may differ from TAROKO REMIXER v1.0.4. For the current app see the [README](../README.md) and [What Is TAROKO REMIXER?](WHAT_IS_TAROKO_REMIXER.md).
+
 ## Behavior summary
 
 TAROKO REMIXER autosaves your working project to the browser's localStorage each time you make a change. On boot, if a saved draft exists, a restore prompt appears. Restore is explicit — nothing loads automatically. Dismiss hides the prompt without clearing the draft. Clear removes it from storage. JSON export remains the portable archive authority.

@@ -1,5 +1,7 @@
 # Claude Code Handoff — TAROKO REMIXER
 
+> **Historical document.** This page describes the v07.x legacy editor (frozen at v07.8, archived at https://taroke-remixer.theblackbirdfield.com/archive/v07.8/), not the current app. Chamber names, file behaviour and URLs here may differ from TAROKO REMIXER v1.0.4. For the current app see the [README](../README.md) and [What Is TAROKO REMIXER?](WHAT_IS_TAROKO_REMIXER.md).
+
 Objective: continue TAROKO REMIXER in `https://github.com/mozareeduge/taroke-remixer` with minimum user back-and-forth and maximum autonomous verified sessions.
 
 Current baseline: v07 layout-pass. It is a functional static app, not a design/aesthetic phase.

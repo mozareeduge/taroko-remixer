@@ -1,5 +1,7 @@
 # TAROKO REMIXER — v07.2 Acceptance Evidence
 
+> **Historical document.** This page describes the v07.x legacy editor (frozen at v07.8, archived at https://taroke-remixer.theblackbirdfield.com/archive/v07.8/), not the current app. Chamber names, file behaviour and URLs here may differ from TAROKO REMIXER v1.0.4. For the current app see the [README](../README.md) and [What Is TAROKO REMIXER?](WHAT_IS_TAROKO_REMIXER.md).
+
 Date: 2026-07-08  
 Branch: `claude/taroko-remixer-v07-2-acceptance-hnp61k`  
 Base: `main` at commit `a9930df` (v07.1 QA hardening pass)

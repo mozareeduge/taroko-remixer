@@ -1,5 +1,7 @@
 # Export, Preview, and Recovery
 
+> **Historical document.** This page describes the v07.x legacy editor (frozen at v07.8, archived at https://taroke-remixer.theblackbirdfield.com/archive/v07.8/), not the current app. Chamber names, file behaviour and URLs here may differ from TAROKO REMIXER v1.0.4. For the current app see the [README](../README.md) and [What Is TAROKO REMIXER?](WHAT_IS_TAROKO_REMIXER.md).
+
 TAROKO REMIXER provides three mechanisms for preserving and distributing your work: project JSON export, standalone HTML export, and browser-local autosave. The Export chamber also offers a temporary live preview. This document explains each and how they differ.
 
 ---

@@ -1,7 +1,7 @@
 {
   "name": "taroko-remixer",
   "version": "0.1.0",
-  "description": "TAROKO remixer — v07.8 root app, v08 workbench (/next/), v1.0.3 review candidate (/next2/)",
+  "description": "TAROKO REMIXER — v1.0.4 live app (next2/index.html, served at / and /next2/), v08 workbench (/next/), frozen v07.8 legacy app (/archive/v07.8/)",
   "skills": [
     "./skills/"
   ]

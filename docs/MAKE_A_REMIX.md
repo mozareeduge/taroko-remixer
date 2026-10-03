@@ -1,5 +1,7 @@
 # Make a Remix
 
+> **Historical document.** This page describes the v07.x legacy editor (frozen at v07.8, archived at https://taroke-remixer.theblackbirdfield.com/archive/v07.8/), not the current app. Chamber names, file behaviour and URLs here may differ from TAROKO REMIXER v1.0.4. For the current app see the [README](../README.md) and [What Is TAROKO REMIXER?](WHAT_IS_TAROKO_REMIXER.md).
+
 A practical walk-through of the TAROKO REMIXER chambers in order. Each section matches a named step in the left-side navigation rail.
 
 ---

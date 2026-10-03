@@ -1,7 +1,7 @@
 # TAROKO REMIXER
 
-- The **live app** is v1.0.3 (`next2/index.html`), deployed to the site root and `/next2/`. It was
-  promoted from `/next2/` to root on 2026-08-26.
+- The **live app** is v1.0.4 (`next2/index.html`), deployed to the site root and `/next2/`. The v1
+  line was promoted from `/next2/` to root on 2026-08-26 (v1.0.3); v1.0.4 followed on 2026-10-02.
 - The **v07.8 legacy app** — `index.html`, `styles.css`, `src/` at the repository root — is frozen
   and archived: preserve its files and its accepted baseline (534 passed, 0 failed) exactly as-is.
   Its CI suite (`scripts/verify_v07_baseline.py`) still runs against those root-level files in

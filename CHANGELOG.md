@@ -1,5 +1,13 @@
 # TAROKO REMIXER — Changelog
 
+## Public documentation brought in line with v1.0.4 — 2026-10-03
+
+- README rewritten: opening statement (the *Taroko Gorge* remix lineage, no-code, platform), the nine v1.0.4 chambers as they appear in `next2/index.html`, project files and recovery, deployments, current vs historical documentation, v1.0.4 known limits, Chicago-style citation line. The live URL is `https://taroke-remixer.theblackbirdfield.com/`.
+- `docs/WHAT_IS_TAROKO_REMIXER.md` rewritten as the work's statement, with sources (ELO 2012 panel transcript; Montfort and Bogost, *Racing the Beam*, 2009).
+- Every other page in `docs/` and `TEST_REPORT.md` now carries a banner marking it as a historical record of the v07.x legacy app.
+- `CITATION.cff`: author alias Mozare, app URL, keywords. `RIGHTS.md`: author name. `CLAUDE.md`, `harness.toml`, `.claude-plugin/plugin.json`: current version 1.0.4.
+- No application code changed.
+
 ## TAROKO REMIXER rename; compat kept — 2026-10-02
 
 - Repository-wide spelling rename `TAROKE` → `TAROKO` and `RIMIXER` → `REMIXER` in visible text, titles, README, docs prose, workbench UI strings, package names (`taroko-remixer`, `@taroko/*`), CHANGELOG title, CITATION.cff title, and e2e `h1` assertions (now `TAROKO REMIXER`).

@@ -1,5 +1,7 @@
 # Import Fidelity — v07.5c
 
+> **Historical document.** This page describes the v07.x legacy editor (frozen at v07.8, archived at https://taroke-remixer.theblackbirdfield.com/archive/v07.8/), not the current app. Chamber names, file behaviour and URLs here may differ from TAROKO REMIXER v1.0.4. For the current app see the [README](../README.md) and [What Is TAROKO REMIXER?](WHAT_IS_TAROKO_REMIXER.md).
+
 ## Problem
 
 Imported projects with custom sample-bank IDs were silently contaminated with classic Taroko default banks (`above`, `below`, `trans`, `imper`, `intrans`, `texture`, `adjs`, `reserve`). Every import merged the classic bank set into the project, regardless of whether those banks were present in the imported file.

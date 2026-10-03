@@ -1,5 +1,7 @@
 # Release Checkpoint — v07.8
 
+> **Historical document.** This page describes the v07.x legacy editor (frozen at v07.8, archived at https://taroke-remixer.theblackbirdfield.com/archive/v07.8/), not the current app. Chamber names, file behaviour and URLs here may differ from TAROKO REMIXER v1.0.4. For the current app see the [README](../README.md) and [What Is TAROKO REMIXER?](WHAT_IS_TAROKO_REMIXER.md).
+
 Date: 2026-07-11
 Branch: claude/v07-8-release-checkpoint
 Base commit: e145603 (Merge v07.7 public documentation packet branch)
