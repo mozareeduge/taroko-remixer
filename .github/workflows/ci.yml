@@ -89,7 +89,14 @@ jobs:
         with:
           node-version: 22
       - name: Install dependencies
-        run: npm ci --ignore-scripts
+        # A stalled registry fetch once hung this step for 35 min on the
+        # self-hosted runner; a normal install takes ~30 s. Fail fast, retry.
+        run: |
+          for attempt in 1 2 3; do
+            timeout 150 npm ci --ignore-scripts --prefer-offline --no-audit --no-fund && exit 0
+            echo "npm ci attempt $attempt failed or stalled; retrying"
+          done
+          exit 1
       - name: Typecheck all packages
         run: npm run typecheck
 
@@ -105,7 +112,14 @@ jobs:
         with:
           node-version: 22
       - name: Install dependencies
-        run: npm ci --ignore-scripts
+        # A stalled registry fetch once hung this step for 35 min on the
+        # self-hosted runner; a normal install takes ~30 s. Fail fast, retry.
+        run: |
+          for attempt in 1 2 3; do
+            timeout 150 npm ci --ignore-scripts --prefer-offline --no-audit --no-fund && exit 0
+            echo "npm ci attempt $attempt failed or stalled; retrying"
+          done
+          exit 1
       - name: Run unit tests
         run: npm run test:workbench
 
@@ -121,7 +135,14 @@ jobs:
         with:
           node-version: 22
       - name: Install dependencies
-        run: npm ci --ignore-scripts
+        # A stalled registry fetch once hung this step for 35 min on the
+        # self-hosted runner; a normal install takes ~30 s. Fail fast, retry.
+        run: |
+          for attempt in 1 2 3; do
+            timeout 150 npm ci --ignore-scripts --prefer-offline --no-audit --no-fund && exit 0
+            echo "npm ci attempt $attempt failed or stalled; retrying"
+          done
+          exit 1
       - name: Build /next/
         run: npm run build:next
 
@@ -137,7 +158,14 @@ jobs:
         with:
           node-version: 22
       - name: Install dependencies
-        run: npm ci --ignore-scripts
+        # A stalled registry fetch once hung this step for 35 min on the
+        # self-hosted runner; a normal install takes ~30 s. Fail fast, retry.
+        run: |
+          for attempt in 1 2 3; do
+            timeout 150 npm ci --ignore-scripts --prefer-offline --no-audit --no-fund && exit 0
+            echo "npm ci attempt $attempt failed or stalled; retrying"
+          done
+          exit 1
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
         working-directory: apps/workbench
@@ -169,7 +197,14 @@ jobs:
         with:
           node-version: 22
       - name: Install dependencies
-        run: npm ci --ignore-scripts
+        # A stalled registry fetch once hung this step for 35 min on the
+        # self-hosted runner; a normal install takes ~30 s. Fail fast, retry.
+        run: |
+          for attempt in 1 2 3; do
+            timeout 150 npm ci --ignore-scripts --prefer-offline --no-audit --no-fund && exit 0
+            echo "npm ci attempt $attempt failed or stalled; retrying"
+          done
+          exit 1
       - name: Install Playwright Firefox
         run: npx playwright install --with-deps firefox
         working-directory: apps/workbench
@@ -201,7 +236,14 @@ jobs:
         with:
           node-version: 22
       - name: Install dependencies
-        run: npm ci --ignore-scripts
+        # A stalled registry fetch once hung this step for 35 min on the
+        # self-hosted runner; a normal install takes ~30 s. Fail fast, retry.
+        run: |
+          for attempt in 1 2 3; do
+            timeout 150 npm ci --ignore-scripts --prefer-offline --no-audit --no-fund && exit 0
+            echo "npm ci attempt $attempt failed or stalled; retrying"
+          done
+          exit 1
       - name: Install Playwright WebKit
         run: npx playwright install --with-deps webkit
         working-directory: apps/workbench
@@ -233,7 +275,14 @@ jobs:
         with:
           node-version: 22
       - name: Install dependencies
-        run: npm ci --ignore-scripts
+        # A stalled registry fetch once hung this step for 35 min on the
+        # self-hosted runner; a normal install takes ~30 s. Fail fast, retry.
+        run: |
+          for attempt in 1 2 3; do
+            timeout 150 npm ci --ignore-scripts --prefer-offline --no-audit --no-fund && exit 0
+            echo "npm ci attempt $attempt failed or stalled; retrying"
+          done
+          exit 1
       - name: Install Playwright Chromium + WebKit
         run: npx playwright install --with-deps chromium webkit
         working-directory: apps/workbench

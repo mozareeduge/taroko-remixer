@@ -7,7 +7,7 @@ Captures screenshots to docs/screenshots/v07_5c_real_grave/.
 """
 import json, subprocess, time, requests, websocket, shutil, pathlib, sys, os, base64
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from browser_runtime import resolve_chromium
+from browser_runtime import resolve_chromium, page_ws_url
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SCREENSHOTS = ROOT / 'docs' / 'screenshots' / 'v07_5c_real_grave'
@@ -69,7 +69,7 @@ try:
     else:
         raise RuntimeError('Chrome DevTools did not start')
 
-    wsurl = requests.get('http://127.0.0.1:9531/json').json()[0]['webSocketDebuggerUrl']
+    wsurl = page_ws_url(9531)
     ws = websocket.create_connection(wsurl, timeout=15)
     cid = 0
     def send(method, params=None):

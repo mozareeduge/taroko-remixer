@@ -16,7 +16,7 @@ import json, subprocess, time, sys, pathlib, shutil, re, os
 import glob as _glob
 import requests, websocket
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from browser_runtime import resolve_chromium
+from browser_runtime import resolve_chromium, page_ws_url
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 PROF = '/tmp/chrome-prof-taroke-ic'
@@ -67,7 +67,7 @@ def start_chrome(width=1280, height=800):
             time.sleep(0.2)
     else:
         raise RuntimeError('Chrome DevTools did not start')
-    wsurl = requests.get('http://127.0.0.1:9244/json').json()[0]['webSocketDebuggerUrl']
+    wsurl = page_ws_url(9244)
     ws = websocket.create_connection(wsurl, timeout=10)
     ws.settimeout(10)
 
