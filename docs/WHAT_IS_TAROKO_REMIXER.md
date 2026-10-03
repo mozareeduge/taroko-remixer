@@ -16,7 +16,7 @@ This continues a movement that runs through programming itself. Every programmin
 
 I use the word platform in the sense developed by Montfort and Ian Bogost in *Racing the Beam: The Atari Video Computer System* (MIT Press, 2009) and in the Platform Studies series they edit at MIT Press: a computational system whose design makes some kinds of work possible and shapes the works made on it. TAROKO REMIXER is itself such a platform. It makes one family of works possible, the procedural e-poem built from banks, routes and rules, and it allows an open-ended number of them, each one a remix.
 
-The same panel also holds a caution. Montfort said there: "I spent literally years creating very elaborate systems explicitly for people to use as platforms to modify. ... practically no one modified them. Then, something I wrote in one day in Python ... takes off." A tool built for remixing cannot assume that people will remix with it. The remix ecosystem grew around a poem that was small enough to read whole, so the test for TAROKO REMIXER is whether its modules stay as readable as that word list was.
+The same panel also holds a caution. Montfort said there: "I spent literally years creating very elaborate systems explicitly for people to use as platforms to modify. ... practically no one modified them. Then, something I wrote in one day in Python ... takes off." His "platforms" there are kits offered for others to modify, a narrower, everyday sense than the platform-studies sense above. A tool built for remixing cannot assume that people will remix with it. The remix ecosystem grew around a poem that was small enough to read whole, so the test for TAROKO REMIXER is whether its modules stay as readable as that word list was.
 
 ---
 
